@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://wanghtt.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://wanghtt.github.io/"/>
+  <updated>2022-10-23T08:14:22.578Z</updated>
+  <id>http://wanghtt.github.io/</id>
+  
+  <author>
+    <name>婷崽</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>My first Blog</title>
+    <link href="http://wanghtt.github.io/2022/102360365.html"/>
+    <id>http://wanghtt.github.io/2022/102360365.html</id>
+    <published>2022-10-23T08:13:45.000Z</published>
+    <updated>2022-10-23T08:14:22.578Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;好好学习呀&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://wanghtt.github.io/2022/102316107.html"/>
+    <id>http://wanghtt.github.io/2022/102316107.html</id>
+    <published>2022-10-23T07:34:24.782Z</published>
+    <updated>2022-10-23T07:31:02.322Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
