@@ -6,7 +6,7 @@
   <link href="http://wanghtt.github.io/atom.xml" rel="self"/>
   
   <link href="http://wanghtt.github.io/"/>
-  <updated>2022-10-23T15:00:13.675Z</updated>
+  <updated>2022-10-24T12:07:30.678Z</updated>
   <id>http://wanghtt.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java-Base</title>
+    <link href="http://wanghtt.github.io/2022/102435483.html"/>
+    <id>http://wanghtt.github.io/2022/102435483.html</id>
+    <published>2022-10-24T12:00:41.000Z</published>
+    <updated>2022-10-24T12:07:30.678Z</updated>
+    
+    
+    
+    
+    <category term="基础" scheme="http://wanghtt.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="JAVA" scheme="http://wanghtt.github.io/tags/JAVA/"/>
+    
+    <category term="BASIC" scheme="http://wanghtt.github.io/tags/BASIC/"/>
+    
+  </entry>
   
   <entry>
     <title>My first Blog</title>
