@@ -571,11 +571,11 @@
 <p>特征：匿名对象只能调用一次。因为new一个就代表一个对象。  </p>
 <h2 id="三、方法形参的传递机制：值传递"><a href="#三、方法形参的传递机制：值传递" class="headerlink" title="三、方法形参的传递机制：值传递"></a>三、方法形参的传递机制：值传递</h2><p> 1.<font color=red>形参</font>：方法定义时，声明的小括号中的值<br> 2.<font color=red>实参</font>：对象调用时候，实参传递给形参的值为实参</p>
 <h3 id="值传递机制"><a href="#值传递机制" class="headerlink" title="值传递机制"></a>值传递机制</h3><p>1.如果变量为基本数据类型，此时赋值的是变量所保存的数据值<br>2.如果变量是引用数据类型==对象调用，此时赋值的变量所保存的数据的地址值。<br>3.<font style="background: orange">如果参数为基本数据类型，此时实参赋给形参的是实参真实存储的数据值</font><br>4.<font style="background: orange">如果参数是引用数据类型==对象调用，此时赋值的变量所保存的数据的地址值  </font></p>
-<h3 id="四、Recursion-递归-了解"><a href="#四、Recursion-递归-了解" class="headerlink" title="四、Recursion(递归)了解"></a>四、Recursion(递归)了解</h3><ul>
+<h2 id="四、Recursion-递归-了解"><a href="#四、Recursion-递归-了解" class="headerlink" title="四、Recursion(递归)了解"></a>四、Recursion(递归)了解</h2><ul>
 <li>  递归方法：一个方法体内调用它自身。</li>
 <li>  方法递归包含了一种隐式的循环，它会重复执行某段代码，但这种重复执行无须循环控制。</li>
 <li>  递归一定要向已知方向递归，否则这种递归就变成了无穷递归，就是死循环。</li>
-<li>  递归对程序不是一无是处的，相反，递归对训练自己的思维很有帮助<h3 id="五、面向对象之一：封装-potting与隐藏"><a href="#五、面向对象之一：封装-potting与隐藏" class="headerlink" title="五、面向对象之一：封装 potting与隐藏"></a>五、面向对象之一：封装 potting与隐藏</h3></li>
+<li>  递归对程序不是一无是处的，相反，递归对训练自己的思维很有帮助<h2 id="五、面向对象之一：封装-potting与隐藏"><a href="#五、面向对象之一：封装-potting与隐藏" class="headerlink" title="五、面向对象之一：封装 potting与隐藏"></a>五、面向对象之一：封装 potting与隐藏</h2></li>
 </ul>
 <p>1.该隐藏的隐藏，该暴露的暴露。这是<font style="background: #5246">封装性的思想</font>  </p>
 <ul>
@@ -596,7 +596,7 @@
 <blockquote>
 <p>总结：<br>1、总结封装性：Java提供了4中权限修饰符来修饰类及类的内部结构，体现类及类的内部结构在被调用时的可见性的大小<br>2.不建议把set和get的功能写在同一个方法中，因为会发生明知故问这样情况。<br>3、(tips:)eclipse中快捷键设置set和get方法：Alt+Shift+s</p>
 </blockquote>
-<h3 id="六、面向对象之二：继承性"><a href="#六、面向对象之二：继承性" class="headerlink" title="六、面向对象之二：继承性"></a>六、面向对象之二：继承性</h3><p>1.为什么要有继承？  WHY ? What  :  how  </p>
+<h2 id="六、面向对象之二：继承性"><a href="#六、面向对象之二：继承性" class="headerlink" title="六、面向对象之二：继承性"></a>六、面向对象之二：继承性</h2><p>1.为什么要有继承？  WHY ? What  :  how  </p>
 <ul>
 <li>多个类中存在相同属性和行为时，将这些内容抽取到单独一个类中， 那么多个类无需再定义这些属性和行为，只要继承那个类即可。 </li>
 <li>Eg:Student类继承了父类Person的所有属性和方法，并增加了一 个属性school。Person中的属性和方法,Student都可以使用。  </li>
