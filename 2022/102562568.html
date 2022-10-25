@@ -368,7 +368,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cn.bing.com/images/search?view=detailV2&ccid=GHFQ63P0&id=5AAFFCC889DEFDD8CF68A8C22862A9952F580CDB&thid=OIP.GHFQ63P0kxVahtJygVovVQHaEo&mediaurl=https%3a%2f%2fts1.cn.mm.bing.net%2fth%2fid%2fR-C.187150eb73f493155a86d272815a2f55%3frik%3d2wxYL5WpYijCqA%26riu%3dhttp%253a%252f%252fi2.img.969g.com%252fdown%252fimgx2014%252f12%252f22%252f289_093450_4ce36.jpg%26ehk%3djcV3VKopy4q%252fZUHtZ72SraZl9SZhUYOnJIEbI0zr%252bpw%253d%26risl%3d%26pid%3dImgRaw%26r%3d0&exph=1050&expw=1680&q=%e9%a3%8e%e6%99%af%e5%a3%81%e7%ba%b8&simid=608048368970637576&FORM=IRPRST&ck=5F8CEB828DF4A177ABF15D8765CF9EFC&selectedIndex=8&ajaxhist=0&ajaxserp=0')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -532,14 +532,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    239
+                    863
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -569,7 +569,33 @@
 <li>调用类中的属性或方法：new People().属性、new People().方法();  </li>
 </ul>
 <p>特征：匿名对象只能调用一次。因为new一个就代表一个对象。  </p>
-<h2 id="方法形参的传递机制：值传递"><a href="#方法形参的传递机制：值传递" class="headerlink" title="方法形参的传递机制：值传递"></a>方法形参的传递机制：值传递</h2><p> 1.<font color=red>形参</font>：方法定义时，声明的小括号中的值<br> 2.<font color=red>实参</font>：对象调用时候，实参传递给形参的值为实参</p>
+<h2 id="三、方法形参的传递机制：值传递"><a href="#三、方法形参的传递机制：值传递" class="headerlink" title="三、方法形参的传递机制：值传递"></a>三、方法形参的传递机制：值传递</h2><p> 1.<font color=red>形参</font>：方法定义时，声明的小括号中的值<br> 2.<font color=red>实参</font>：对象调用时候，实参传递给形参的值为实参</p>
+<h3 id="值传递机制"><a href="#值传递机制" class="headerlink" title="值传递机制"></a>值传递机制</h3><p>1.如果变量为基本数据类型，此时赋值的是变量所保存的数据值<br>2.如果变量是引用数据类型==对象调用，此时赋值的变量所保存的数据的地址值。<br>3.<font style="background: orange">如果参数为基本数据类型，此时实参赋给形参的是实参真实存储的数据值</font><br>4.<font style="background: orange">如果参数是引用数据类型==对象调用，此时赋值的变量所保存的数据的地址值  </font></p>
+<h3 id="四、Recursion-递归-了解"><a href="#四、Recursion-递归-了解" class="headerlink" title="四、Recursion(递归)了解"></a>四、Recursion(递归)了解</h3><ul>
+<li>  递归方法：一个方法体内调用它自身。</li>
+<li>  方法递归包含了一种隐式的循环，它会重复执行某段代码，但这种重复执行无须循环控制。</li>
+<li>  递归一定要向已知方向递归，否则这种递归就变成了无穷递归，就是死循环。</li>
+<li>  递归对程序不是一无是处的，相反，递归对训练自己的思维很有帮助<h3 id="五、封装-potting与隐藏"><a href="#五、封装-potting与隐藏" class="headerlink" title="五、封装 potting与隐藏"></a>五、封装 potting与隐藏</h3></li>
+</ul>
+<p>1.该隐藏的隐藏，该暴露的暴露。这是<font style="background: #5246">封装性的思想</font>  </p>
+<ul>
+<li> <font style="background: #3333">问题引入：<blockquote>
+<p>&ensp;当创建一个类的对象之后，可以通过“对象.属性”方式，对对象的属性进行赋值。这时候，赋值操作要受到属性的数据类型和存储范围的制约。除此之外，没有其他限制条件。<br>&ensp;但是在实际生活中，我们需要给属性赋值加入额外的限制条件。这个条件就不能再属性声明时体现。我们只能通过方法进行限制条件的添加。同时，需要避免用户再使用“对象.属性”方式进行赋值。则需要将属性声明为私有的（private）。—&gt;此时，针对于属性就体现了封装性  </p>
+</blockquote>
+</li>
+<li>封装性的体现：<ul>
+<li><font color=red>将类的属性（xxx）私有化（private),同时，提供共有的方法来获取（getXxx）和设置(setXxx)</font></li>
+</ul>
+</li>
+<li>封装性的体现，需要权限修饰符来配合<ul>
+<li>Java中规定4中权限（有小到大）：<font style="background: orange">private、缺省（default）就是省略、protected、public</font></li>
+<li><img src="../imgs/%E6%9D%83%E9%99%90%E4%BF%AE%E9%A5%B0.png" alt="权限修饰图范围"></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>总结：<br>1、总结封装性：Java提供了4中权限修饰符来修饰类及类的内部结构，体现类及类的内部结构在被调用时的可见性的大小<br>2.不建议把set和get的功能写在同一个方法中，因为会发生明知故问这样情况。<br>3、(tips:)eclipse中快捷键设置set和get方法：Alt+Shift+s</p>
+</blockquote>
 
                 
             </div>
@@ -817,7 +843,8 @@
                 <a href="/2022/102562568.html">
                     <div class="card-image">
                         
-                        <img src="https://cn.bing.com/images/search?view=detailV2&ccid=GHFQ63P0&id=5AAFFCC889DEFDD8CF68A8C22862A9952F580CDB&thid=OIP.GHFQ63P0kxVahtJygVovVQHaEo&mediaurl=https%3a%2f%2fts1.cn.mm.bing.net%2fth%2fid%2fR-C.187150eb73f493155a86d272815a2f55%3frik%3d2wxYL5WpYijCqA%26riu%3dhttp%253a%252f%252fi2.img.969g.com%252fdown%252fimgx2014%252f12%252f22%252f289_093450_4ce36.jpg%26ehk%3djcV3VKopy4q%252fZUHtZ72SraZl9SZhUYOnJIEbI0zr%252bpw%253d%26risl%3d%26pid%3dImgRaw%26r%3d0&exph=1050&expw=1680&q=%e9%a3%8e%e6%99%af%e5%a3%81%e7%ba%b8&simid=608048368970637576&FORM=IRPRST&ck=5F8CEB828DF4A177ABF15D8765CF9EFC&selectedIndex=8&ajaxhist=0&ajaxserp=0" class="responsive-img" alt="Java基础二">
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Java基础二">
                         
                         <span class="card-title">Java基础二</span>
                     </div>
@@ -867,7 +894,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/102435483.html">
+                <a href="/2022/102437225.html">
                     <div class="card-image">
                         
                         
@@ -1109,7 +1136,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">915</span>&nbsp;字
+                class="white-color">1.5k</span>&nbsp;字
             
             
             
