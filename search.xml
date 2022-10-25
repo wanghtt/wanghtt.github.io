@@ -4,16 +4,43 @@
   
     
     <entry>
-      <title>Java-Base</title>
-      <link href="/2022/102435483.html"/>
-      <url>/2022/102435483.html</url>
+      <title>Java基础二</title>
+      <link href="/2022/102562568.html"/>
+      <url>/2022/102562568.html</url>
       
-        <content type="html"><![CDATA[<h1 id="Java中的基本数据类型-两类、8种"><a href="#Java中的基本数据类型-两类、8种" class="headerlink" title="Java中的基本数据类型(两类、8种)"></a>Java中的基本数据类型(两类、8种)</h1><h2 id="数值类型-–-gt-六个"><a href="#数值类型-–-gt-六个" class="headerlink" title="数值类型 –&gt;六个"></a>数值类型 –&gt;六个</h2><p>整型：<br>1.byte(字节型)：内存占1个字节<br>2.short(短整型)：内存占2个字节<br>3.int(整型)：内存占4个字节<br>4.long(长整型)：内存占8个字节<br>浮点型：<br>1.float(单精度浮点型)：内存中占4个字节<br>2.double(双精度浮点型)：内存中占8个字节</p><h2 id="非数值类型-–-gt-两个"><a href="#非数值类型-–-gt-两个" class="headerlink" title="非数值类型 –&gt;两个"></a>非数值类型 –&gt;两个</h2><p>1.char(字符串)：内存中占2个字节<br>2.boolean(布尔型)：boolean类型被编译成int类型来使用时，占4个byte。boolean数组被编译成byte数组，每个boolean数组成员占1个byte(8位)。在Java虚拟机里，00000001表示true，00000000表示false。</p><blockquote><p>注意c语言中的char占用1个字节。<br>提示：int（数值基本类型）类型默认值为：0；boolean类型默认为：false；String默认值为：null；因为String为类，不是基本数据类型（切记）—(具体原因，后期更新!)</p></blockquote><h2 id="一维数组的声明"><a href="#一维数组的声明" class="headerlink" title="一维数组的声明"></a>一维数组的声明</h2><ul><li>int[] 数组名=null；</li><li>int 数组名[]=null；</li><li>int[] 数组名=new int[3]；</li></ul><h2 id="二维数组的声明"><a href="#二维数组的声明" class="headerlink" title="二维数组的声明"></a>二维数组的声明</h2><ul><li>float[][] numthree; </li><li>numthree=new float[5][5]; </li><li>short[][] numfour=new short[5][8]</li><li>short[][] numfour=new short[5][]</li></ul><h1 id="OOP的三条主线"><a href="#OOP的三条主线" class="headerlink" title="OOP的三条主线"></a>OOP的三条主线</h1><h2 id="一、类及类的成员"><a href="#一、类及类的成员" class="headerlink" title="一、类及类的成员"></a>一、类及类的成员</h2><p>  1.属性：成员变量=field=字段、域<br>  2.方法：函数=成员方法=method<br>  3.构造器<br>  4.内部类<br>  5.代码块</p><h3 id="类和对象的理解，两者之间的关系"><a href="#类和对象的理解，两者之间的关系" class="headerlink" title="类和对象的理解，两者之间的关系"></a>类和对象的理解，两者之间的关系</h3><blockquote><p>类：抽象的、概念上的内容。对象：实实在在存在的一个个体。对象是由类new出来的，每new一个都是一个新的对象。</p></blockquote><h3 id="驼峰式命名"><a href="#驼峰式命名" class="headerlink" title="驼峰式命名"></a>驼峰式命名</h3><blockquote><p>类名的命名、接口名、命名空间等 —–&gt;大驼峰命名法的使用范围(首单词的首字母是否大写,若大写,则是大驼峰命名法)<br>变量名的命名、函数名(方法名)的命名等 —-&gt;小驼峰命名法(构成标识符的首单词的首字母小写,其他单词的首字母都大写)</p></blockquote><blockquote><p>鄙人刚部署好个人博客，四舍五入操作熟练度为0，编写文件内容格式很丑，目前不懂如何美化，并且第一次使用Markdown编辑器感觉很是鸡肋，没办法写出自己想要的效果。日后会寻找办法去改善这种情况。目前本人大三在读，日常分享Java基础知识。多多关注！多多分享！</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1 id="Java基础二"><a href="#Java基础二" class="headerlink" title="Java基础二"></a>Java基础二</h1><h2 id="一、方法重载"><a href="#一、方法重载" class="headerlink" title="一、方法重载"></a>一、方法重载</h2><p><font color=red>定义：</font><br>&emsp;同一个类中，允许存在一个以上同一个方法名的方法，只要他们的<font color=blue>参数个数或参数类型不同</font>就可以。  </p><blockquote><p>总结：方法重载判断(两同一不同)：(类相同、方法名相同、参数(类型、个数)不同)。<br>判断是否是重载：与方法的权限修饰、返回值类型、形参变量名、方法体都没有关系。</p></blockquote><h2 id="二、匿名对象"><a href="#二、匿名对象" class="headerlink" title="二、匿名对象"></a>二、匿名对象</h2><p>理解：  </p><ul><li>创建对象没有显示的赋给一个变量名。即匿名对象。例如：new People();</li><li>调用类中的属性或方法：new People().属性、new People().方法();  </li></ul><p>特征：匿名对象只能调用一次。因为new一个就代表一个对象。  </p><h2 id="方法形参的传递机制：值传递"><a href="#方法形参的传递机制：值传递" class="headerlink" title="方法形参的传递机制：值传递"></a>方法形参的传递机制：值传递</h2><p> 1.<font color=red>形参</font>：方法定义时，声明的小括号中的值<br> 2.<font color=red>实参</font>：对象调用时候，实参传递给形参的值为实参</p>]]></content>
       
       
       <categories>
           
-          <category> 基础 </category>
+          <category> Java基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+            <tag> BASIC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java基础一</title>
+      <link href="/2022/102435483.html"/>
+      <url>/2022/102435483.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="Java中的基本数据类型-两类、8个"><a href="#Java中的基本数据类型-两类、8个" class="headerlink" title="Java中的基本数据类型(两类、8个)"></a>Java中的基本数据类型(两类、8个)</h1><h2 id="数值类型-–-gt-六个"><a href="#数值类型-–-gt-六个" class="headerlink" title="数值类型 –&gt;六个"></a>数值类型 –&gt;六个</h2><p>整型：<br>1.byte(字节型)：内存占1个字节<br>2.short(短整型)：内存占2个字节<br>3.int(整型)：内存占4个字节<br>4.long(长整型)：内存占8个字节<br>浮点型：<br>1.float(单精度浮点型)：内存中占4个字节<br>2.double(双精度浮点型)：内存中占8个字节</p><h2 id="非数值类型-–-gt-两个"><a href="#非数值类型-–-gt-两个" class="headerlink" title="非数值类型 –&gt;两个"></a>非数值类型 –&gt;两个</h2><p>1.char(字符串)：内存中占2个字节<br>2.boolean(布尔型)：boolean类型被编译成int类型来使用时，占4个byte。boolean数组被编译成byte数组，每个boolean数组成员占1个byte(8位)。在Java虚拟机里，00000001表示true，00000000表示false。</p><blockquote><p>注意c语言中的char占用1个字节。<br>提示：int（数值基本类型）类型默认值为：0；boolean类型默认为：false；String默认值为：null；因为String为类，不是基本数据类型（切记）—(具体原因，后期更新!)</p></blockquote><h2 id="一维数组的声明"><a href="#一维数组的声明" class="headerlink" title="一维数组的声明"></a>一维数组的声明</h2><ul><li>int[] 数组名=null；</li><li>int 数组名[]=null；</li><li>int[] 数组名=new int[3]；</li></ul><h2 id="二维数组的声明"><a href="#二维数组的声明" class="headerlink" title="二维数组的声明"></a>二维数组的声明</h2><ul><li>float[][] numthree; </li><li>numthree=new float[5][5]; </li><li>short[][] numfour=new short[5][8]</li><li>short[][] numfour=new short[5][]</li></ul><h1 id="OOP的三条主线"><a href="#OOP的三条主线" class="headerlink" title="OOP的三条主线"></a>OOP的三条主线</h1><h2 id="一、类及类的成员"><a href="#一、类及类的成员" class="headerlink" title="一、类及类的成员"></a>一、类及类的成员</h2><p>  1.属性：成员变量=field=字段、域<br>  2.方法：函数=成员方法=method<br>  3.构造器<br>  4.内部类<br>  5.代码块</p><h3 id="类和对象的理解，两者之间的关系"><a href="#类和对象的理解，两者之间的关系" class="headerlink" title="类和对象的理解，两者之间的关系"></a>类和对象的理解，两者之间的关系</h3><blockquote><p>类：抽象的、概念上的内容。对象：实实在在存在的一个个体。对象是由类new出来的，每new一个都是一个新的对象。</p></blockquote><h3 id="驼峰式命名"><a href="#驼峰式命名" class="headerlink" title="驼峰式命名"></a>驼峰式命名</h3><blockquote><p>类名的命名、接口名、命名空间等 —–&gt;大驼峰命名法的使用范围(首单词的首字母是否大写,若大写,则是大驼峰命名法)<br>变量名的命名、函数名(方法名)的命名等 —-&gt;小驼峰命名法(构成标识符的首单词的首字母小写,其他单词的首字母都大写)</p></blockquote><blockquote><p>鄙人刚部署好个人博客，四舍五入操作熟练度为0，编写文件内容格式很丑，目前不懂如何美化，并且第一次使用Markdown编辑器感觉很是鸡肋，没办法写出自己想要的效果。日后会寻找办法去改善这种情况。目前本人大三在读，日常分享Java基础知识。多多关注！多多分享！</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java基础 </category>
           
       </categories>
       

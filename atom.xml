@@ -6,7 +6,7 @@
   <link href="http://wanghtt.github.io/atom.xml" rel="self"/>
   
   <link href="http://wanghtt.github.io/"/>
-  <updated>2022-10-24T13:52:41.787Z</updated>
+  <updated>2022-10-25T12:41:45.800Z</updated>
   <id>http://wanghtt.github.io/</id>
   
   <author>
@@ -17,24 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java-Base</title>
+    <title>Java基础二</title>
+    <link href="http://wanghtt.github.io/2022/102562568.html"/>
+    <id>http://wanghtt.github.io/2022/102562568.html</id>
+    <published>2022-10-25T00:04:09.000Z</published>
+    <updated>2022-10-25T12:41:45.800Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Java基础二&quot;&gt;&lt;a href=&quot;#Java基础二&quot; class=&quot;headerlink&quot; title=&quot;Java基础二&quot;&gt;&lt;/a&gt;Java基础二&lt;/h1&gt;&lt;h2 id=&quot;一、方法重载&quot;&gt;&lt;a href=&quot;#一、方法重载&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Java基础" scheme="http://wanghtt.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="JAVA" scheme="http://wanghtt.github.io/tags/JAVA/"/>
+    
+    <category term="BASIC" scheme="http://wanghtt.github.io/tags/BASIC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java基础一</title>
     <link href="http://wanghtt.github.io/2022/102435483.html"/>
     <id>http://wanghtt.github.io/2022/102435483.html</id>
     <published>2022-10-24T12:00:41.000Z</published>
-    <updated>2022-10-24T13:52:41.787Z</updated>
+    <updated>2022-10-25T12:43:05.765Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Java中的基本数据类型-两类、8种&quot;&gt;&lt;a href=&quot;#Java中的基本数据类型-两类、8种&quot; class=&quot;headerlink&quot; title=&quot;Java中的基本数据类型(两类、8种)&quot;&gt;&lt;/a&gt;Java中的基本数据类型(两类、8种)&lt;/h1&gt;&lt;h2</summary>
+    <summary type="html">&lt;h1 id=&quot;Java中的基本数据类型-两类、8个&quot;&gt;&lt;a href=&quot;#Java中的基本数据类型-两类、8个&quot; class=&quot;headerlink&quot; title=&quot;Java中的基本数据类型(两类、8个)&quot;&gt;&lt;/a&gt;Java中的基本数据类型(两类、8个)&lt;/h1&gt;&lt;h2</summary>
         
       
     
     
     
-    <category term="基础" scheme="http://wanghtt.github.io/categories/%E5%9F%BA%E7%A1%80/"/>
+    <category term="Java基础" scheme="http://wanghtt.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
     
     
     <category term="JAVA" scheme="http://wanghtt.github.io/tags/JAVA/"/>

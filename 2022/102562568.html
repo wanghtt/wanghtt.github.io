@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java基础一, WHT&#39;s Blog">
+    <meta name="keywords" content="Java基础二, WHT&#39;s Blog">
     <meta name="description" content="每个人身上都有太阳，主要是让它如何发光！">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java基础一 | WHT&#39;s Blog</title>
+    <title>Java基础二 | WHT&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -368,12 +368,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cn.bing.com/images/search?view=detailV2&ccid=GHFQ63P0&id=5AAFFCC889DEFDD8CF68A8C22862A9952F580CDB&thid=OIP.GHFQ63P0kxVahtJygVovVQHaEo&mediaurl=https%3a%2f%2fts1.cn.mm.bing.net%2fth%2fid%2fR-C.187150eb73f493155a86d272815a2f55%3frik%3d2wxYL5WpYijCqA%26riu%3dhttp%253a%252f%252fi2.img.969g.com%252fdown%252fimgx2014%252f12%252f22%252f289_093450_4ce36.jpg%26ehk%3djcV3VKopy4q%252fZUHtZ72SraZl9SZhUYOnJIEbI0zr%252bpw%253d%26risl%3d%26pid%3dImgRaw%26r%3d0&exph=1050&expw=1680&q=%e9%a3%8e%e6%99%af%e5%a3%81%e7%ba%b8&simid=608048368970637576&FORM=IRPRST&ck=5F8CEB828DF4A177ABF15D8765CF9EFC&selectedIndex=8&ajaxhist=0&ajaxserp=0')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java基础一</h1>
+                    <h1 class="description center-align post-title">Java基础二</h1>
                 </div>
             </div>
         </div>
@@ -518,7 +518,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-24
+                    2022-10-25
                 </div>
                 
 
@@ -532,14 +532,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    598
+                    239
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -559,32 +559,17 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Java中的基本数据类型-两类、8个"><a href="#Java中的基本数据类型-两类、8个" class="headerlink" title="Java中的基本数据类型(两类、8个)"></a>Java中的基本数据类型(两类、8个)</h1><h2 id="数值类型-–-gt-六个"><a href="#数值类型-–-gt-六个" class="headerlink" title="数值类型 –&gt;六个"></a>数值类型 –&gt;六个</h2><p>整型：<br>1.byte(字节型)：内存占1个字节<br>2.short(短整型)：内存占2个字节<br>3.int(整型)：内存占4个字节<br>4.long(长整型)：内存占8个字节<br>浮点型：<br>1.float(单精度浮点型)：内存中占4个字节<br>2.double(双精度浮点型)：内存中占8个字节</p>
-<h2 id="非数值类型-–-gt-两个"><a href="#非数值类型-–-gt-两个" class="headerlink" title="非数值类型 –&gt;两个"></a>非数值类型 –&gt;两个</h2><p>1.char(字符串)：内存中占2个字节<br>2.boolean(布尔型)：boolean类型被编译成int类型来使用时，占4个byte。boolean数组被编译成byte数组，每个boolean数组成员占1个byte(8位)。在Java虚拟机里，00000001表示true，00000000表示false。</p>
+                <h1 id="Java基础二"><a href="#Java基础二" class="headerlink" title="Java基础二"></a>Java基础二</h1><h2 id="一、方法重载"><a href="#一、方法重载" class="headerlink" title="一、方法重载"></a>一、方法重载</h2><p><font color=red>定义：</font><br>&emsp;同一个类中，允许存在一个以上同一个方法名的方法，只要他们的<font color=blue>参数个数或参数类型不同</font>就可以。  </p>
 <blockquote>
-<p>注意c语言中的char占用1个字节。<br>提示：int（数值基本类型）类型默认值为：0；boolean类型默认为：false；String默认值为：null；因为String为类，不是基本数据类型（切记）—(具体原因，后期更新!)</p>
+<p>总结：方法重载判断(两同一不同)：(类相同、方法名相同、参数(类型、个数)不同)。<br>判断是否是重载：与方法的权限修饰、返回值类型、形参变量名、方法体都没有关系。</p>
 </blockquote>
-<h2 id="一维数组的声明"><a href="#一维数组的声明" class="headerlink" title="一维数组的声明"></a>一维数组的声明</h2><ul>
-<li>int[] 数组名=null；</li>
-<li>int 数组名[]=null；</li>
-<li>int[] 数组名=new int[3]；</li>
+<h2 id="二、匿名对象"><a href="#二、匿名对象" class="headerlink" title="二、匿名对象"></a>二、匿名对象</h2><p>理解：  </p>
+<ul>
+<li>创建对象没有显示的赋给一个变量名。即匿名对象。例如：new People();</li>
+<li>调用类中的属性或方法：new People().属性、new People().方法();  </li>
 </ul>
-<h2 id="二维数组的声明"><a href="#二维数组的声明" class="headerlink" title="二维数组的声明"></a>二维数组的声明</h2><ul>
-<li>float[][] numthree; </li>
-<li>numthree=new float[5][5]; </li>
-<li>short[][] numfour=new short[5][8]</li>
-<li>short[][] numfour=new short[5][]</li>
-</ul>
-<h1 id="OOP的三条主线"><a href="#OOP的三条主线" class="headerlink" title="OOP的三条主线"></a>OOP的三条主线</h1><h2 id="一、类及类的成员"><a href="#一、类及类的成员" class="headerlink" title="一、类及类的成员"></a>一、类及类的成员</h2><p>  1.属性：成员变量=field=字段、域<br>  2.方法：函数=成员方法=method<br>  3.构造器<br>  4.内部类<br>  5.代码块</p>
-<h3 id="类和对象的理解，两者之间的关系"><a href="#类和对象的理解，两者之间的关系" class="headerlink" title="类和对象的理解，两者之间的关系"></a>类和对象的理解，两者之间的关系</h3><blockquote>
-<p>类：抽象的、概念上的内容。对象：实实在在存在的一个个体。对象是由类new出来的，每new一个都是一个新的对象。</p>
-</blockquote>
-<h3 id="驼峰式命名"><a href="#驼峰式命名" class="headerlink" title="驼峰式命名"></a>驼峰式命名</h3><blockquote>
-<p>类名的命名、接口名、命名空间等 —–&gt;大驼峰命名法的使用范围(首单词的首字母是否大写,若大写,则是大驼峰命名法)<br>变量名的命名、函数名(方法名)的命名等 —-&gt;小驼峰命名法(构成标识符的首单词的首字母小写,其他单词的首字母都大写)</p>
-</blockquote>
-<blockquote>
-<p>鄙人刚部署好个人博客，四舍五入操作熟练度为0，编写文件内容格式很丑，目前不懂如何美化，并且第一次使用Markdown编辑器感觉很是鸡肋，没办法写出自己想要的效果。日后会寻找办法去改善这种情况。目前本人大三在读，日常分享Java基础知识。多多关注！多多分享！</p>
-</blockquote>
+<p>特征：匿名对象只能调用一次。因为new一个就代表一个对象。  </p>
+<h2 id="方法形参的传递机制：值传递"><a href="#方法形参的传递机制：值传递" class="headerlink" title="方法形参的传递机制：值传递"></a>方法形参的传递机制：值传递</h2><p> 1.<font color=red>形参</font>：方法定义时，声明的小括号中的值<br> 2.<font color=red>实参</font>：对象调用时候，实参传递给形参的值为实参</p>
 
                 
             </div>
@@ -611,7 +596,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://wanghtt.github.io/2022/102435483.html">http://wanghtt.github.io/2022/102435483.html</a>
+                    <a href="http://wanghtt.github.io/2022/102562568.html">http://wanghtt.github.io/2022/102562568.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -824,9 +809,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/102562568.html">
                     <div class="card-image">
@@ -843,9 +829,63 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Java%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Java基础
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JAVA/">
+                        <span class="chip bg-color">JAVA</span>
+                    </a>
+                    
+                    <a href="/tags/BASIC/">
+                        <span class="chip bg-color">BASIC</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/102435483.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Java基础一">
+                        
+                        <span class="card-title">Java基础一</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -869,43 +909,6 @@
                         <span class="chip bg-color">BASIC</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/102360365.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="My first Blog">
-                        
-                        <span class="card-title">My first Blog</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            WHT
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
