@@ -110,17 +110,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/friends" class="waves-effect waves-light">
       
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
@@ -230,17 +219,6 @@
 			    <i class="fa-fw fas fa-archive"></i>
 			
 			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -527,7 +505,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-25
+                    2022-10-26
                 </div>
                 
 
@@ -577,9 +555,9 @@
 <li>  递归方法：一个方法体内调用它自身。</li>
 <li>  方法递归包含了一种隐式的循环，它会重复执行某段代码，但这种重复执行无须循环控制。</li>
 <li>  递归一定要向已知方向递归，否则这种递归就变成了无穷递归，就是死循环。</li>
-<li>  递归对程序不是一无是处的，相反，递归对训练自己的思维很有帮助<h2 id="五、面向对象之一：封装-potting与隐藏"><a href="#五、面向对象之一：封装-potting与隐藏" class="headerlink" title="五、面向对象之一：封装 potting与隐藏"></a>五、面向对象之一：封装 potting与隐藏</h2></li>
+<li>  递归对程序不是一无是处的，相反，递归对训练自己的思维很有帮助</li>
 </ul>
-<p>1.该隐藏的隐藏，该暴露的暴露。这是<font style="background: #5246">封装性的思想</font>  </p>
+<h2 id="五、面向对象之一：封装-potting与隐藏"><a href="#五、面向对象之一：封装-potting与隐藏" class="headerlink" title="五、面向对象之一：封装 potting与隐藏"></a>五、面向对象之一：封装 potting与隐藏</h2><p>1.该隐藏的隐藏，该暴露的暴露。这是<font style="background: #5246">封装性的思想</font>  </p>
 <ul>
 <li> <font style="background: #3333">问题引入：<blockquote>
 <p>&ensp;当创建一个类的对象之后，可以通过“对象.属性”方式，对对象的属性进行赋值。这时候，赋值操作要受到属性的数据类型和存储范围的制约。除此之外，没有其他限制条件。<br>&ensp;但是在实际生活中，我们需要给属性赋值加入额外的限制条件。这个条件就不能再属性声明时体现。我们只能通过方法进行限制条件的添加。同时，需要避免用户再使用“对象.属性”方式进行赋值。则需要将属性声明为私有的（private）。—&gt;此时，针对于属性就体现了封装性  </p>
