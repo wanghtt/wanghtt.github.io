@@ -467,12 +467,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/JAVA/">
+                                <span class="chip bg-color">JAVA</span>
+                            </a>
+                        
+                            <a href="/tags/Algorithm/">
+                                <span class="chip bg-color">Algorithm</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Algorithm/" class="post-category">
+                                Algorithm
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -488,21 +505,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-26
+                    2022-10-27
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    7 分
                 </div>
                 
 
@@ -522,7 +539,98 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="十大经典排序"><a href="#十大经典排序" class="headerlink" title="十大经典排序"></a>十大经典排序</h1><p>&ensp;本学期学了数据结构,为了更好的去理解其中的知识,同时也为了训练自己的相关思想，总而言之，既然花时间去做了这件事，就得有所成果。所以，为了让自己理解的更加透彻，我想把自己所学、所理解的的内容，在此分享给友友们。如果有地方不理解或者有错误，大家可以在本篇文章底部进行评论、私聊我可以。我看到会及时回复大家的。那么好，我们言归正传，下面正式介绍十大算法，因为时间问题，我会分成两篇文章进行介绍。</p>
+<h2 id="一、排序的说明"><a href="#一、排序的说明" class="headerlink" title="一、排序的说明"></a>一、排序的说明</h2><h3 id="1-1-排序的定义"><a href="#1-1-排序的定义" class="headerlink" title="1.1 排序的定义"></a>1.1 排序的定义</h3><p>对一序列对象根据某个关键字进行排序</p>
+<h3 id="1-2-术语说明"><a href="#1-2-术语说明" class="headerlink" title="1.2 术语说明"></a>1.2 术语说明</h3><ul>
+<li>稳定：如果a原本排序在b的前面，而a=b，排序之后a任然在b的前面;</li>
+<li>不稳定：如果如果a原本排序在b的前面，而a=b，排序之后a却在b的后面;</li>
+<li>内排序：所有排序操作都在内存中完成</li>
+<li>外排序：由于数据量太大，因此把数据放在磁盘中，而排序通过磁盘和内存的数据传输才能进行;</li>
+<li>时间复杂度：一个算法执行所耗费的时间</li>
+<li>空间复杂度：运行完一个程序所需内存的大小<h3 id="1-3-算法的总结"><a href="#1-3-算法的总结" class="headerlink" title="1.3 算法的总结"></a>1.3 算法的总结</h3></li>
+<li><img src="../imgs/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95.png" alt="图片理解"></li>
+<li>名词解释：<ul>
+<li>n:数据规模<ul>
+<li> <font style="background:#ff22">解释：运行一个O(n)的程序，观察n对程序运行时间的影响。</font></li>
+</ul>
+</li>
+<li>k:‘桶’的个数<ul>
+<li> ‘桶’的基本了解：它所统计的就是每个数据在数据集合中一共出现了多少次。</li>
+<li> <font style="background:#ff22">这里引用了大佬的比喻：一般的数据结构，就好比有几个篮子(A,B,C)，我们接到了一个新的数据，就要考虑将其按我们想要的那种方式分类，然后扔到某一个篮子里。桶呢？就好比有几个篮子(1,2,3,4)，我们接到了一个新的数据，只看这个数据到底是什么，是1就扔进1号篮，2就扔进2号篮，以此类推。</font></li>
+</ul>
+</li>
+<li> In-place:占用内存，不占用额外的内存</li>
+<li> Out-place:占用额外的内存</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-比较和非比较的区别"><a href="#1-4-比较和非比较的区别" class="headerlink" title="1.4 比较和非比较的区别"></a>1.4 比较和非比较的区别</h3><p>&ensp;常见的<em><strong>快速排序、归并排序、堆排序、冒泡排序等</strong></em>属于<font color=red>比较排序</font>。<strong>在排序的最终结果中，元素之间的次序依赖于它们之间的比较。每个数都必须和其他数进行比较，才能确定自己的位置。</strong><br>&ensp;在冒泡排序之类的排序中，问题规模为n，又因为需要比较n此，所以平均时间复杂度为O(n^2)。在归并排序、快速排序之类的排序中，问题规模通过分治法消减为logN次，所以时间复杂度平均O(nlogn)。<br>&ensp;计数排序、基数排序、桶排序属于非比较排序。<em><strong>非比较排序是通过确定每个元素之前，应该有多少个元素来排序。针对数组arr,计算arr[i]之前有多少个元素，则唯一确定了arr[i]在排序后数组中的位置</strong></em>。<br>&ensp;非比较排序只要确定每个元素之前的已有的元素个数即可，所有一次遍历即可解决。算法时间复杂度O(n)。</p>
+<blockquote>
+<p>总结：<br>&ensp;比较排序的优势是，使用于各种规模的数据，也不在乎数据的分布，都能进行排序。可以说，比较排序适用于一切需要排序的情况。<br>&ensp;非比较排序时间复杂度低，但由于非比较排序需要占用空间来确定唯一位置，所以对数据规模和数据分布有一定的要求。</p>
+</blockquote>
+<h2 id="二、十大经典排序一：冒泡排序-Bubble-Sort"><a href="#二、十大经典排序一：冒泡排序-Bubble-Sort" class="headerlink" title="二、十大经典排序一：冒泡排序(Bubble Sort)"></a>二、十大经典排序一：冒泡排序(Bubble Sort)</h2><h3 id="2-1-说明："><a href="#2-1-说明：" class="headerlink" title="2.1 说明："></a>2.1 说明：</h3><p>&ensp;冒泡排序是一种简单的排序算法。它重复走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换。走访数列的工作是重复的进行直到没有在需要交换。此时该数列已经排序完成。</p>
+<h3 id="2-2-算法描述-以升序为例"><a href="#2-2-算法描述-以升序为例" class="headerlink" title="2.2 算法描述(以升序为例)"></a>2.2 算法描述(以升序为例)</h3><ul>
+<li>比较相邻的两个元素。如果第一个比第二个大，就交换它们两。</li>
+<li>对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对，这样在最后的元素会是数组中最大的数。</li>
+<li><font style="background:#abab">针对所有元素重复以上的步骤，此时，除去最后一个</font></li>
+<li>重复上面3步操作，知道排序完成。<h3 id="2-3-动图显示"><a href="#2-3-动图显示" class="headerlink" title="2.3 动图显示"></a>2.3 动图显示</h3><img src="../imgs/%E5%8A%A8%E6%80%81.gif" alt="冒泡排序"><h3 id="2-4-代码实现"><a href="#2-4-代码实现" class="headerlink" title="2.4 代码实现"></a>2.4 代码实现</h3><pre class=" language-Java"><code class="language-Java">public int[] Bubble(int[] arry)&#123;
+  //先判断数组中是否有数据
+      if(arr.length == 0)&#123;
+              return arr;
+          &#125;
+  //这里的i表示比较的趟数 
+      for (int i = 0; i < arry.length; i++) &#123;
+          //j表示数组下标，因为每次完成一次趟数下一趟就会少一个数进行比较
+          for (int j = 0; j < arry.length-i-1; j++) &#123;
+              if(arry[j]>arry[j+1])&#123;
+                  //temp为临时变量，两个数据之间的交换操作
+                  int temp=arry[j];
+                  arry[j]=arry[j+1];
+                  arry[j+1]=temp;
+              &#125;
+          &#125;
+      &#125;
+      return arry;
+  &#125;
+</code></pre>
+<h3 id="2-5-算法分析"><a href="#2-5-算法分析" class="headerlink" title="2.5 算法分析"></a>2.5 算法分析</h3></li>
+<li>最佳情况：T(n)=O(n)—-&gt;表示一次就成功</li>
+<li>最差情况：T(n)=O(n^2) —–&gt;表示最后才成功</li>
+<li>平均情况：T(n)=O(n^2)</li>
+</ul>
+<h2 id="三、十大经典排序二：选择排序-Selection-Sort"><a href="#三、十大经典排序二：选择排序-Selection-Sort" class="headerlink" title="三、十大经典排序二：选择排序(Selection Sort)"></a>三、十大经典排序二：选择排序(Selection Sort)</h2><h3 id="3-1-说明："><a href="#3-1-说明：" class="headerlink" title="3.1 说明："></a>3.1 说明：</h3><p>&ensp;表现最稳定的排序算法之一，因为无论什么数据进去都是O(n^2)的时间复杂度，<font style="background:orange">所以用到它的时候，<strong>数据规模越小越好</strong>。唯一的好处可能就是不占用额外的内存空间。</font><br>&ensp;工作原理：首先在未排序序列中找到最小(大)元素，存放到排序序列的起始位置，然后再从剩余未排序元素中继续寻找最小(大)元素，然后放到已排序序列的末尾。依次类推，直接所有元素均排序完毕。</p>
+<h3 id="3-2-算法描述"><a href="#3-2-算法描述" class="headerlink" title="3.2 算法描述"></a>3.2 算法描述</h3><p>&ensp;n个记录的直接选择排序可经过n-1趟直接选择排序得到有序结果。具体描述如下：</p>
+<ul>
+<li>初始状态：无序区[1….n],有序区为空;</li>
+<li>第i(i∈(1,2,3..))趟排序开始时,当前有序区和无序区分别为R[1….i-1]和R[i…n)。该趟排序从当前无序区中选出关键字最小的记录R[k]，将它与无序区的第i个记录R交换，使R[1….i-1]和R[i…n)分别变为记录个数增加1个新有序区和记录个数减少1个的新无序区。<h3 id="3-3-动画演示"><a href="#3-3-动画演示" class="headerlink" title="3.3 动画演示"></a>3.3 动画演示</h3><img src="../imgs/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F.gif" alt="选择排序"><h3 id="3-4-代码排序"><a href="#3-4-代码排序" class="headerlink" title="3.4 代码排序"></a>3.4 代码排序</h3><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">Selection</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">//先判断数组中是否有数据</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">.</span>length <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">//假设，下标为i所对应的值为最小</span>
+          <span class="token keyword">int</span> minIndex<span class="token operator">=</span>i<span class="token punctuation">;</span>
+          <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> i<span class="token punctuation">;</span> j <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+              <span class="token keyword">if</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token operator">&lt;</span>arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">//把最小值的小标赋给minIndex</span>
+                  minIndex<span class="token operator">=</span>j<span class="token punctuation">;</span>
+              <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+          <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">//根据下标的对应值进行交换数据</span>
+          <span class="token keyword">int</span> temp<span class="token operator">=</span>arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          arr<span class="token punctuation">[</span>minIndex<span class="token punctuation">]</span><span class="token operator">=</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+          arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">=</span>temp<span class="token punctuation">;</span>
+          <span class="token comment" spellcheck="true">//如果下标i后面没有比它小的值，则位置不变，i++</span>
+      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span> arr<span class="token punctuation">;</span>
+  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<h3 id="3-5-算法分析"><a href="#3-5-算法分析" class="headerlink" title="3.5 算法分析"></a>3.5 算法分析</h3></li>
+<li>最佳情况：T(n)=O(n^2)</li>
+<li>最差情况：T(n)=O(n^2)</li>
+<li>平均情况：T(n)=O(n^2)</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -538,7 +646,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">WHT</a>
+                    <a href="/about" rel="external nofollow noreferrer">王浩</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -561,7 +669,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">WHT</a>
+                    <a href="/about" target="_blank">王浩</a>
                     !
                 </span>
             </div>
@@ -585,7 +693,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/JAVA/">
+                                    <span class="chip bg-color">JAVA</span>
+                                </a>
+                            
+                                <a href="/tags/Algorithm/">
+                                    <span class="chip bg-color">Algorithm</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -1042,13 +1158,29 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            WHT
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Algorithm/" class="post-category">
+                                    Algorithm
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JAVA/">
+                        <span class="chip bg-color">JAVA</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -1301,7 +1433,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.8k</span>&nbsp;字
+                class="white-color">4.7k</span>&nbsp;字
             
             
             
