@@ -614,7 +614,7 @@
 <li>C可以继承所有B和A类的所有方法和属性</font></li>
 </ul>
 <p>5.间接父类图形演示：<br>&emsp;&emsp;&emsp;&emsp;&emsp;<img src="../imgs/%E7%AE%80%E4%BB%8B%E7%88%B6%E7%B1%BB.png" alt="间接父类"></p>
-<h3 id="七、面向对象之三：多态性"><a href="#七、面向对象之三：多态性" class="headerlink" title="七、面向对象之三：多态性"></a>七、面向对象之三：多态性</h3><p>1.理解多态性：<br>可以理解为一个事物的多种形态。就是引用父类的类型调用子类重写父类的方法。  </p>
+<h2 id="七、面向对象之三：多态性"><a href="#七、面向对象之三：多态性" class="headerlink" title="七、面向对象之三：多态性"></a>七、面向对象之三：多态性</h2><p>1.理解多态性：<br>可以理解为一个事物的多种形态。就是引用父类的类型调用子类重写父类的方法。  </p>
 <p>2.何为多态：  </p>
 <ul>
 <li>对象的多态性：父类的引用指向子类的对象（或子类的对象赋给父类的引用）。</li>
@@ -666,28 +666,28 @@
 </li>
 </ul>
 <p>10.向上转型（多态）：子类可看做是特殊的父类，所以父类类型的引用可以指向子类的对象。</p>
-<h3 id="八、类的成员之三：构造器-构造方法"><a href="#八、类的成员之三：构造器-构造方法" class="headerlink" title="八、类的成员之三：构造器(构造方法)"></a>八、类的成员之三：构造器(构造方法)</h3><h4 id="1、构造器特征以及作用"><a href="#1、构造器特征以及作用" class="headerlink" title="1、构造器特征以及作用"></a>1、构造器特征以及作用</h4><p>1.具有与类相同的名称<br>2.不声明返回值类型。(与声明void不同)<br>3.不能被static、final、synchronized、abstract、native修饰，不能有<br>return语句返回值<br>4.创建对象、给对象进行初始化<br>5.语法格式</p>
+<h2 id="八、类的成员之三：构造器-构造方法"><a href="#八、类的成员之三：构造器-构造方法" class="headerlink" title="八、类的成员之三：构造器(构造方法)"></a>八、类的成员之三：构造器(构造方法)</h2><h3 id="1、构造器特征以及作用"><a href="#1、构造器特征以及作用" class="headerlink" title="1、构造器特征以及作用"></a>1、构造器特征以及作用</h3><p>1.具有与类相同的名称<br>2.不声明返回值类型。(与声明void不同)<br>3.不能被static、final、synchronized、abstract、native修饰，不能有<br>return语句返回值<br>4.创建对象、给对象进行初始化<br>5.语法格式</p>
 <ul>
 <li>修饰符 类型(参数列表){初始化语句;}</li>
 </ul>
-<h4 id="2、构造器的分类"><a href="#2、构造器的分类" class="headerlink" title="2、构造器的分类"></a>2、构造器的分类</h4><p>1.根据参数不同，构造器可以分为如下两类：</p>
+<h3 id="2、构造器的分类"><a href="#2、构造器的分类" class="headerlink" title="2、构造器的分类"></a>2、构造器的分类</h3><p>1.根据参数不同，构造器可以分为如下两类：</p>
 <ul>
 <li>隐式无参构造器（系统默认提供）</li>
 <li>显式定义一个或多个构造器（无参、有参）</li>
 </ul>
-<h4 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h4><ul>
+<h3 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h3><ul>
 <li>Java语言中，每个类都至少有一个构造器</li>
 <li>默认构造器的修饰符与所属类的修饰符一致</li>
 <li>一旦显式定义了构造器，则系统不再提供默认构造器</li>
 <li>一个类可以创建多个重载的构造器</li>
 <li>父类的构造器不可被子类继承</li>
 </ul>
-<h4 id="4、属性赋值的过程"><a href="#4、属性赋值的过程" class="headerlink" title="4、属性赋值的过程"></a>4、属性赋值的过程</h4><ul>
+<h3 id="4、属性赋值的过程"><a href="#4、属性赋值的过程" class="headerlink" title="4、属性赋值的过程"></a>4、属性赋值的过程</h3><ul>
 <li>赋值的位置：<br>a、默认初始化<br>b、显示初始化<br>c、 构造器中初始化<br>d、 通过”对象.属性”或”对象.方法()”的方式赋值</li>
 <li>赋值的先后顺序<br>a-b-c-d</li>
 </ul>
-<h3 id="九、关键字–this、import、package"><a href="#九、关键字–this、import、package" class="headerlink" title="九、关键字–this、import、package"></a>九、关键字–this、import、package</h3><h4 id="1、this是什么？"><a href="#1、this是什么？" class="headerlink" title="1、this是什么？"></a>1、this是什么？</h4><p>1.<font color=red>它在方法内部使用，即这个方法所属对象的引用；<br>2.它在构造器内部使用，表示该构造器正在初始化的对象。</font></p>
-<h4 id="2、this的作用"><a href="#2、this的作用" class="headerlink" title="2、this的作用"></a>2、this的作用</h4><ul>
+<h2 id="九、关键字–this、import、package"><a href="#九、关键字–this、import、package" class="headerlink" title="九、关键字–this、import、package"></a>九、关键字–this、import、package</h2><h3 id="1、this是什么？"><a href="#1、this是什么？" class="headerlink" title="1、this是什么？"></a>1、this是什么？</h3><p>1.<font color=red>它在方法内部使用，即这个方法所属对象的引用；<br>2.它在构造器内部使用，表示该构造器正在初始化的对象。</font></p>
+<h3 id="2、this的作用"><a href="#2、this的作用" class="headerlink" title="2、this的作用"></a>2、this的作用</h3><ul>
 <li>this 可以调用类的属性、方法和构造器</li>
 <li><strong>什么时候使用this关键字呢？</strong><ul>
 <li>当在方法内需要用到调用该方法的对象时，就用this。具体的：我们可以用this来区分属性和局部变量。</li>
@@ -702,13 +702,13 @@
 </blockquote>
 </li>
 </ul>
-<h4 id="3、this的使用要求："><a href="#3、this的使用要求：" class="headerlink" title="3、this的使用要求："></a>3、this的使用要求：</h4><ol>
+<h3 id="3、this的使用要求："><a href="#3、this的使用要求：" class="headerlink" title="3、this的使用要求："></a>3、this的使用要求：</h3><ol>
 <li>构造器中不能通过”this(形参列表)”的方式调用自身构造器</li>
 <li>如果一个类中声明了n个构造器，则最多有 n - 1个构造器中使用了<br>“this(形参列表)”  </li>
 <li>“this(形参列表)”必须声明在类的构造器的首行！</li>
 <li>在类的一个构造器中，最多只能声明一个”this(形参列表)”</li>
 </ol>
-<h4 id="4、Package关键字的使用"><a href="#4、Package关键字的使用" class="headerlink" title="4、Package关键字的使用"></a>4、Package关键字的使用</h4><ol>
+<h3 id="4、Package关键字的使用"><a href="#4、Package关键字的使用" class="headerlink" title="4、Package关键字的使用"></a>4、Package关键字的使用</h3><ol>
 <li>为了更好的实现项目中类的管理，提供包的概念</li>
 <li>使用package声明类或接口所属的包，声明在源文件的首行</li>
 <li>包属于标识符，遵循标识符的命名规则、规范、“见名知意”</li>
@@ -721,7 +721,7 @@
 </ol>
 </li>
 </ol>
-<h4 id="5、import关键字的使用"><a href="#5、import关键字的使用" class="headerlink" title="5、import关键字的使用"></a>5、import关键字的使用</h4><ol>
+<h3 id="5、import关键字的使用"><a href="#5、import关键字的使用" class="headerlink" title="5、import关键字的使用"></a>5、import关键字的使用</h3><ol>
 <li>import：导入</li>
 <li>在源文件中显示使用import结构导入指定包下的类、接口</li>
 <li>如果使用的类或接口在本包下面定义的，则可以省略使用import</li>
@@ -1497,8 +1497,8 @@
     <div class="row">
         <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
                    server="netease"
-                   type="song"
-                   id="1830723177"
+                   type="playlist"
+                   id="7705500253"
                    fixed='true'
                    autoplay='true'
                    theme='#42b983'
