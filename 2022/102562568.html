@@ -505,21 +505,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-27
+                    2022-10-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.2k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    10 分
                 </div>
                 
 
@@ -666,6 +666,68 @@
 </li>
 </ul>
 <p>10.向上转型（多态）：子类可看做是特殊的父类，所以父类类型的引用可以指向子类的对象。</p>
+<h3 id="八、类的成员之三：构造器-构造方法"><a href="#八、类的成员之三：构造器-构造方法" class="headerlink" title="八、类的成员之三：构造器(构造方法)"></a>八、类的成员之三：构造器(构造方法)</h3><h4 id="1、构造器特征以及作用"><a href="#1、构造器特征以及作用" class="headerlink" title="1、构造器特征以及作用"></a>1、构造器特征以及作用</h4><p>1.具有与类相同的名称<br>2.不声明返回值类型。(与声明void不同)<br>3.不能被static、final、synchronized、abstract、native修饰，不能有<br>return语句返回值<br>4.创建对象、给对象进行初始化<br>5.语法格式</p>
+<ul>
+<li>修饰符 类型(参数列表){初始化语句;}</li>
+</ul>
+<h4 id="2、构造器的分类"><a href="#2、构造器的分类" class="headerlink" title="2、构造器的分类"></a>2、构造器的分类</h4><p>1.根据参数不同，构造器可以分为如下两类：</p>
+<ul>
+<li>隐式无参构造器（系统默认提供）</li>
+<li>显式定义一个或多个构造器（无参、有参）</li>
+</ul>
+<h4 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h4><ul>
+<li>Java语言中，每个类都至少有一个构造器</li>
+<li>默认构造器的修饰符与所属类的修饰符一致</li>
+<li>一旦显式定义了构造器，则系统不再提供默认构造器</li>
+<li>一个类可以创建多个重载的构造器</li>
+<li>父类的构造器不可被子类继承</li>
+</ul>
+<h4 id="4、属性赋值的过程"><a href="#4、属性赋值的过程" class="headerlink" title="4、属性赋值的过程"></a>4、属性赋值的过程</h4><ul>
+<li>赋值的位置：<br>a、默认初始化<br>b、显示初始化<br>c、 构造器中初始化<br>d、 通过”对象.属性”或”对象.方法()”的方式赋值</li>
+<li>赋值的先后顺序<br>a-b-c-d</li>
+</ul>
+<h3 id="九、关键字–this、import、package"><a href="#九、关键字–this、import、package" class="headerlink" title="九、关键字–this、import、package"></a>九、关键字–this、import、package</h3><h4 id="1、this是什么？"><a href="#1、this是什么？" class="headerlink" title="1、this是什么？"></a>1、this是什么？</h4><p>1.<font color=red>它在方法内部使用，即这个方法所属对象的引用；<br>2.它在构造器内部使用，表示该构造器正在初始化的对象。</font></p>
+<h4 id="2、this的作用"><a href="#2、this的作用" class="headerlink" title="2、this的作用"></a>2、this的作用</h4><ul>
+<li>this 可以调用类的属性、方法和构造器</li>
+<li><strong>什么时候使用this关键字呢？</strong><ul>
+<li>当在方法内需要用到调用该方法的对象时，就用this。具体的：我们可以用this来区分属性和局部变量。</li>
+</ul>
+</li>
+<li><em><strong>下面的段落非常重要，大概率可以帮助你理解this关键字的用法。</strong></em><blockquote>
+<ol>
+<li>在任意方法或构造器内，如果使用当前类的成员变量或成员方法可以在其前面添加this，增强程序的阅读性。不过，通常我们都习惯省略this.</li>
+<li><font color="#ff22f">当形参与成员变量同名时，<font style="background:orange">如果在方法内或构造器内需要使用成员变量，必须添加this来表明该变量是类的成员变量</font>。使用this访问属性和方法时，如果在本类中未找到，会从父类中查找。</font> </li>
+<li>this可以作为一个类中构造器相互调用的特殊格式</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h4 id="3、this的使用要求："><a href="#3、this的使用要求：" class="headerlink" title="3、this的使用要求："></a>3、this的使用要求：</h4><ol>
+<li>构造器中不能通过”this(形参列表)”的方式调用自身构造器</li>
+<li>如果一个类中声明了n个构造器，则最多有 n - 1个构造器中使用了<br>“this(形参列表)”  </li>
+<li>“this(形参列表)”必须声明在类的构造器的首行！</li>
+<li>在类的一个构造器中，最多只能声明一个”this(形参列表)”</li>
+</ol>
+<h4 id="4、Package关键字的使用"><a href="#4、Package关键字的使用" class="headerlink" title="4、Package关键字的使用"></a>4、Package关键字的使用</h4><ol>
+<li>为了更好的实现项目中类的管理，提供包的概念</li>
+<li>使用package声明类或接口所属的包，声明在源文件的首行</li>
+<li>包属于标识符，遵循标识符的命名规则、规范、“见名知意”</li>
+<li>package命名时候每一个“.”代表一层文件目录<ol>
+<li>补充：<ol>
+<li>同一个包中，不能命名同名的接口、类</li>
+<li>不同包下，可以命名同名的接口、类</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="5、import关键字的使用"><a href="#5、import关键字的使用" class="headerlink" title="5、import关键字的使用"></a>5、import关键字的使用</h4><ol>
+<li>import：导入</li>
+<li>在源文件中显示使用import结构导入指定包下的类、接口</li>
+<li>如果使用的类或接口在本包下面定义的，则可以省略使用import</li>
+<li>如果在源文件中，使用了不同包下的同名类，则必须至少有一个类需要以全名类（包的名字.类的名字）的方式显示</li>
+<li>Import static：导入指定类或接口中的静态方法结构：属性或方法</li>
+</ol>
 
                 
             </div>
@@ -1467,7 +1529,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.7k</span>&nbsp;字
+                class="white-color">5.7k</span>&nbsp;字
             
             
             
