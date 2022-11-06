@@ -6,7 +6,7 @@
   <link href="http://wanghtt.github.io/atom.xml" rel="self"/>
   
   <link href="http://wanghtt.github.io/"/>
-  <updated>2022-10-27T10:51:54.810Z</updated>
+  <updated>2022-11-06T14:34:18.332Z</updated>
   <id>http://wanghtt.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java基础三</title>
+    <link href="http://wanghtt.github.io/2022/110638825.html"/>
+    <id>http://wanghtt.github.io/2022/110638825.html</id>
+    <published>2022-11-06T14:31:30.000Z</published>
+    <updated>2022-11-06T14:34:18.332Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Java基础三&quot;&gt;&lt;a href=&quot;#Java基础三&quot; class=&quot;headerlink&quot; title=&quot;Java基础三&quot;&gt;&lt;/a&gt;Java基础三&lt;/h1&gt;&lt;h2 id=&quot;一、类的成员之四：代码块&quot;&gt;&lt;a href=&quot;#一、类的成员之四：代码块&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Java基础" scheme="http://wanghtt.github.io/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="JAVA" scheme="http://wanghtt.github.io/tags/JAVA/"/>
+    
+    <category term="BASIC" scheme="http://wanghtt.github.io/tags/BASIC/"/>
+    
+  </entry>
   
   <entry>
     <title>Java实现十大排序算法</title>
