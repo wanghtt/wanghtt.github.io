@@ -512,14 +512,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.4k
+                    2.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    17 分
+                    11 分
                 </div>
                 
 
@@ -753,172 +753,179 @@
 </li>
 <li><p><font style="background:#ffff22">单向链表不可以 自我删除，在添加和删除的时候都要找到要操作结点的前一个结点</font></p>
 </li>
-<li><p><em><strong>单链表</strong></em>的添加和删除：<br>```JAVA<br>// 单链表的结点<br>class LinkNode<E> {<br> E data;// 数据成员<br> LinkNode next; //指向的结点地址</p>
-<p> public LinkNode() {</p>
-<pre><code> next = null;
+<li><p><em><strong>单链表</strong></em>的添加和删除：</p>
+<pre class=" language-JAVA"><code class="language-JAVA">// 单链表的结点
+ class LinkNode<E> &#123;
+     E data;// 数据成员
+     LinkNode next; //指向的结点地址
+
+     public LinkNode() &#123;
+         next = null;
+     &#125;
+
+     public LinkNode(E e) &#123;
+         data = e;
+         next = null;
+     &#125;
+ &#125;
+
+ // 设置单链表类
+ class LinkListClass<E> &#123;
+     LinkNode<E> head; // 存放头结点
+
+     public LinkListClass() &#123;
+         head = new LinkNode<E>(); // 创建头结点
+         head.next = null; // 头结点next为null
+     &#125;
+
+     // 使用头插法建表,每次都是从第一个元素插入，所以最后结果是倒叙
+     public void CreateListF(E[] a) &#123; // 由数组a整体建立单链表
+         LinkNode<E> s; // 插入的结点 的对象
+         for (int i = 0; i < a.length; i++) &#123;
+             s = new LinkNode<>( a[i] );
+             s.next = head.next;
+             head.next = s;
+         &#125;
+     &#125;
+
+     // 使用尾插法建表。这里需要知道，结点是不可以动的，只可以代替，这里t就是为了代替结点。时间复杂度O(n)
+     public void CreateListR(E[] a) &#123;
+         LinkNode<E> s,t; // 插入的结点 的对象
+         t=head;
+         for (int i = 0; i < a.length; i++) &#123;
+             s=new LinkNode<>(a[i]);
+             s.next=t.next; //s的指针指向t.next的结点
+             t=s; // t替换为s结点
+         &#125;
+         t.next=null;
+     &#125;
+
+     // 返回序号为i的结点,单链表只可以从头结点开始一个一个向后面找元素
+     public LinkNode<E> geti(int i)&#123;
+         LinkNode p=head;
+         int j=-1;
+         while (j<i)&#123;
+             j++;
+             p=p.next;
+         &#125;
+         return p;
+     &#125;
+
+     //获取链表结点的个数
+     public int size()&#123;
+         LinkNode p=head;
+         int sum=0;
+         while (p.next !=null)&#123;
+             sum++;
+             p=p.next;
+         &#125;
+         return sum;
+     &#125;
+     //删除第几个序号的结点
+     public void Delte(int i)&#123;
+         if(i<0 || i>size()-1)&#123;
+             throw new IllegalArgumentException("找出结点：i的范围出错");
+         &#125;
+         LinkNode p=geti( i-1 );
+         p.next=p.next.next;
+     &#125;
+ &#125;
 </code></pre>
-<p> }</p>
-<p> public LinkNode(E e) {</p>
-<pre><code> data = e;
- next = null;
-</code></pre>
-<p> }<br>}</p>
+<h3 id="2-5、双链表"><a href="#2-5、双链表" class="headerlink" title="2.5、双链表"></a>2.5、双链表</h3></li>
+<li><p>双链表中每个结点有两个指针成员，一个指向后继结点，一个指向前驱结点。  </p>
 </li>
 </ol>
-<p>// 设置单链表类<br>class LinkListClass<E> {<br>    LinkNode<E> head; // 存放头结点</p>
-<pre><code>public LinkListClass() &#123;
-    head = new LinkNode&lt;E&gt;(); // 创建头结点
-    head.next = null; // 头结点next为null
-&#125;
+<p><em><strong>双链表的相关操作</strong></em>：</p>
+<pre class=" language-Java"><code class="language-Java">    class DLinkNode<E> &#123; //双链表结点泛型类
+        E data; //结点元素值
+        DLinkNode<E> prior; //前驱结点指针
+        DLinkNode<E> next; //后继结点指针
 
-// 使用头插法建表,每次都是从第一个元素插入，所以最后结果是倒叙
-public void CreateListF(E[] a) &#123; // 由数组a整体建立单链表
-    LinkNode&lt;E&gt; s; // 插入的结点 的对象
-    for (int i = 0; i &lt; a.length; i++) &#123;
-        s = new LinkNode&lt;&gt;( a[i] );
-        s.next = head.next;
-        head.next = s;
-    &#125;
-&#125;
-
-// 使用尾插法建表。这里需要知道，结点是不可以动的，只可以代替，这里t就是为了代替结点。时间复杂度O(n)
-public void CreateListR(E[] a) &#123;
-    LinkNode&lt;E&gt; s,t; // 插入的结点 的对象
-    t=head;
-    for (int i = 0; i &lt; a.length; i++) &#123;
-        s=new LinkNode&lt;&gt;(a[i]);
-        s.next=t.next; //s的指针指向t.next的结点
-        t=s; // t替换为s结点
-    &#125;
-    t.next=null;
-&#125;
-
-// 返回序号为i的结点,单链表只可以从头结点开始一个一个向后面找元素
-public LinkNode&lt;E&gt; geti(int i)&#123;
-    LinkNode p=head;
-    int j=-1;
-    while (j&lt;i)&#123;
-        j++;
-        p=p.next;
-    &#125;
-    return p;
-&#125;
-
-//获取链表结点的个数
-public int size()&#123;
-    LinkNode p=head;
-    int sum=0;
-    while (p.next !=null)&#123;
-        sum++;
-        p=p.next;
-    &#125;
-    return sum;
-&#125;
-//删除第几个序号的结点
-public void Delte(int i)&#123;
-    if(i&lt;0 || i&gt;size()-1)&#123;
-        throw new IllegalArgumentException(&quot;找出结点：i的范围出错&quot;);
-    &#125;
-    LinkNode p=geti( i-1 );
-    p.next=p.next.next;
-&#125;
-</code></pre>
-<p>}</p>
-<pre><code>### 2.5、双链表
-1. 双链表中每个结点有两个指针成员，一个指向后继结点，一个指向前驱结点。  
-   
-***双链表的相关操作：***
-```Java
-class DLinkNode&lt;E&gt; &#123; //双链表结点泛型类
-    E data; //结点元素值
-    DLinkNode&lt;E&gt; prior; //前驱结点指针
-    DLinkNode&lt;E&gt; next; //后继结点指针
-
-    public DLinkNode() &#123;
-        prior = null;
-        next = null;
-    &#125;
-
-    public DLinkNode(E data) &#123;
-        this.data = data;
-        prior = null;
-        next = null;
-    &#125;
-&#125;
-
-class DLinkListClass&lt;E&gt; &#123; //双链表泛型类
-    DLinkNode&lt;E&gt; dhead; // 存放头结点
-
-    public DLinkListClass() &#123;
-        dhead = new DLinkNode&lt;&gt;();
-        dhead.prior = null;
-        dhead.next = null;
-    &#125;
-
-    // 使用尾插法建表
-    public void CreateListR(E[] a) &#123;
-        DLinkNode&lt;E&gt; s, t;
-        t = dhead; // 这里解释一下：链表中的结点是不可以移动的，所以需要使用所谓的&#39;替身&#39;
-        for (int i = 0; i &lt; a.length; i++) &#123;
-            s = new DLinkNode&lt;&gt;( a[i] );
-            t.next = s; //t的后继结点指向s
-            s.prior = t; // s的前驱结点指向t
-            t = s; //t 替换 s
+        public DLinkNode() &#123;
+            prior = null;
+            next = null;
         &#125;
-        t.next = null; //将尾结点的next成员设置为null
+
+        public DLinkNode(E data) &#123;
+            this.data = data;
+            prior = null;
+            next = null;
+        &#125;
     &#125;
 
-    // 双链表的长度
-    public int size() &#123;
-        DLinkNode&lt;E&gt; t;
-        t = dhead;
-        int sum = 0;
-        while (t.next != null) &#123;
-            sum++;
-            t = t.next;
-        &#125;
-        return sum;
-    &#125;
+    class DLinkListClass<E> &#123; //双链表泛型类
+        DLinkNode<E> dhead; // 存放头结点
 
-    // 双链表的指定元素,这里的i是序号，从0开始
-    public DLinkNode geti(int i) &#123;
-        DLinkNode p = dhead;
-        int j = -1;
-        while (j &lt; i) &#123;
-            j++;
-            p = p.next;
+        public DLinkListClass() &#123;
+            dhead = new DLinkNode<>();
+            dhead.prior = null;
+            dhead.next = null;
         &#125;
-        return p;
-    &#125;
 
-    // 在双链表中插入元素
-    public void Insert(int i, E e) &#123; // 在序号为i的位置上插入元素
-        if (i &lt; 0 || i &gt; size()) &#123;
-            throw new IllegalArgumentException( &quot;插入：位置i不在有效范围内&quot; );
+        // 使用尾插法建表
+        public void CreateListR(E[] a) &#123;
+            DLinkNode<E> s, t;
+            t = dhead; // 这里解释一下：链表中的结点是不可以移动的，所以需要使用所谓的'替身'
+            for (int i = 0; i < a.length; i++) &#123;
+                s = new DLinkNode<>( a[i] );
+                t.next = s; //t的后继结点指向s
+                s.prior = t; // s的前驱结点指向t
+                t = s; //t 替换 s
+            &#125;
+            t.next = null; //将尾结点的next成员设置为null
         &#125;
-        DLinkNode s = new DLinkNode( e );//建立新的结点
-        DLinkNode p = geti( i - 1 ); //找到序号为i-1的元素，在其后面加入新的元素s
-        s.next = p.next;
-        if (p.next != null) &#123; // 判断p结点是否有后继结点
-            p.next.prior = s;
-        &#125;
-        p.next = s; //p的后继结点指向s
-        s.prior = p;// s的前驱结点指向p
-    &#125;
 
-    // 删除结点
-    public void Delete(int i) &#123;
-        if (i &lt; 0 || i &gt; size() - 1) &#123;
-            throw new IllegalArgumentException( &quot;删除：位置i不在有效范围内&quot; );
+        // 双链表的长度
+        public int size() &#123;
+            DLinkNode<E> t;
+            t = dhead;
+            int sum = 0;
+            while (t.next != null) &#123;
+                sum++;
+                t = t.next;
+            &#125;
+            return sum;
         &#125;
-        DLinkNode p = geti( i );// 找到指定的元素
-        if (p.next != null) &#123;
-            p.next.prior = p.prior;
+
+        // 双链表的指定元素,这里的i是序号，从0开始
+        public DLinkNode geti(int i) &#123;
+            DLinkNode p = dhead;
+            int j = -1;
+            while (j < i) &#123;
+                j++;
+                p = p.next;
+            &#125;
+            return p;
         &#125;
-        p.prior.next = p.next;
+
+        // 在双链表中插入元素
+        public void Insert(int i, E e) &#123; // 在序号为i的位置上插入元素
+            if (i < 0 || i > size()) &#123;
+                throw new IllegalArgumentException( "插入：位置i不在有效范围内" );
+            &#125;
+            DLinkNode s = new DLinkNode( e );//建立新的结点
+            DLinkNode p = geti( i - 1 ); //找到序号为i-1的元素，在其后面加入新的元素s
+            s.next = p.next;
+            if (p.next != null) &#123; // 判断p结点是否有后继结点
+                p.next.prior = s;
+            &#125;
+            p.next = s; //p的后继结点指向s
+            s.prior = p;// s的前驱结点指向p
+        &#125;
+
+        // 删除结点
+        public void Delete(int i) &#123;
+            if (i < 0 || i > size() - 1) &#123;
+                throw new IllegalArgumentException( "删除：位置i不在有效范围内" );
+            &#125;
+            DLinkNode p = geti( i );// 找到指定的元素
+            if (p.next != null) &#123;
+                p.next.prior = p.prior;
+            &#125;
+            p.prior.next = p.next;
+        &#125;
+        // 以上两种算法的时间复杂度都是O(n)
     &#125;
-    // 以上两种算法的时间复杂度都是O(n)
-&#125;
 </code></pre>
 <h3 id="2-6、单链表和双链表的区分"><a href="#2-6、单链表和双链表的区分" class="headerlink" title="2.6、单链表和双链表的区分"></a>2.6、单链表和双链表的区分</h3><ol>
 <li><p>在单链表中删除一个结点需要找到其前驱结点，而在双链表中删除结点不必找到其前驱结点，在需要找到要删除的结点即可。</p>
@@ -950,20 +957,28 @@ class DLinkListClass&lt;E&gt; &#123; //双链表泛型类
 </li>
 <li><p><em><strong>循环双链表</strong></em>：</p>
 <ol>
-<li>尾结点的指针指向头结点，头结点的prior指针指向尾结点。其特点就是表成为两个环。</li>
-<li>特点：从表中任意一个结点出发均可以找到其他节点。通过头结点在O(1)时间内找到尾结点。</li>
-<li>循环双链表的插入和删除与双链表的相同，所以两者的许多基本运算算法是相似的，只要区别就是：<ol>
+<li><p>尾结点的指针指向头结点，头结点的prior指针指向尾结点。其特点就是表成为两个环。</p>
+</li>
+<li><p>特点：从表中任意一个结点出发均可以找到其他节点。通过头结点在O(1)时间内找到尾结点。</p>
+</li>
+<li><p>循环双链表的插入和删除与双链表的相同，所以两者的许多基本运算算法是相似的，只要区别就是：</p>
+<ol>
 <li>初始只有头结点head,在循环双链表的构造方法中国需要通过dhead.prior=head和dhead.next = dhead语句置为空表。</li>
-<li>循环双链表中涉及查找操作时需要修改表尾的判断的条件。比如在遍历链表时，尾结点满足的条件是p.next==head。<br>```Java<br>class DLinkListClass<E> { //双链表泛型类<br>DLinkNode<E> dhead; // 存放头结点</li>
 </ol>
 </li>
-</ol>
-<p> public DLinkListClass() {</p>
-<pre><code> dhead = new DLinkNode&lt;&gt;();
- dhead.prior = dhead;
- dhead.next = dhead;
+<li><p>循环双链表中涉及查找操作时需要修改表尾的判断的条件。比如在遍历链表时，尾结点满足的条件是p.next==head。</p>
+<pre class=" language-Java"><code class="language-Java">class DLinkListClass<E> &#123; //双链表泛型类
+    DLinkNode<E> dhead; // 存放头结点
+
+    public DLinkListClass() &#123;
+        dhead = new DLinkNode<>();
+        dhead.prior = dhead;
+        dhead.next = dhead;
+    &#125;
+&#125;
 </code></pre>
-<p> }<br>}<br>```</p>
+</li>
+</ol>
 </li>
 </ol>
 <h3 id="2-7、顺序表和链表的比较"><a href="#2-7、顺序表和链表的比较" class="headerlink" title="2.7、顺序表和链表的比较"></a>2.7、顺序表和链表的比较</h3><ol>
@@ -1793,7 +1808,7 @@ class DLinkListClass&lt;E&gt; &#123; //双链表泛型类
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">15k</span>&nbsp;字
+                class="white-color">13.4k</span>&nbsp;字
             
             
             
