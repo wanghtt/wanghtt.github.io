@@ -1233,44 +1233,43 @@
 </ol>
 </li>
 </ol>
-<pre><code>    ```Java
-class CSqQueueClass&lt;E&gt; &#123;
-    final int MaxSize = 10; // 假设容量为10
-    private E[] data; // 存放队列中的元素
-    private int front, rear; // 队头、队尾的指针
+<pre class=" language-Java"><code class="language-Java">        class CSqQueueClass<E> &#123;
+            final int MaxSize = 10; // 假设容量为10
+            private E[] data; // 存放队列中的元素
+            private int front, rear; // 队头、队尾的指针
 
-    public CSqQueueClass() &#123;
-        data = (E[]) new Object[MaxSize];
-        front = rear = 0;
-    &#125;
+            public CSqQueueClass() &#123;
+                data = (E[]) new Object[MaxSize];
+                front = rear = 0;
+            &#125;
 
-    public boolean empty() &#123; // 判断是否为空
-        return rear == front;
-    &#125;
+            public boolean empty() &#123; // 判断是否为空
+                return rear == front;
+            &#125;
 
-    public void push(E e) &#123; // 入队
-        if ((rear + 1) % MaxSize == front) &#123;
-            throw new IllegalArgumentException( &quot;队满&quot; );
+            public void push(E e) &#123; // 入队
+                if ((rear + 1) % MaxSize == front) &#123;
+                    throw new IllegalArgumentException( "队满" );
+                &#125;
+                rear = (rear + 1) % MaxSize;
+                data[rear] = e;
+            &#125;
+
+            public E pop() &#123; // 出队
+                if (empty()) &#123;
+                    throw new IllegalArgumentException( "队空" );
+                &#125;
+                front = (front + 1) % MaxSize;
+                return data[front];
+            &#125;
+
+            public E push() &#123; // 返回队头元素
+                if (empty()) &#123;
+                    throw new IllegalArgumentException( "队空" );
+                &#125;
+                return data[(front + 1) % MaxSize];
+            &#125;
         &#125;
-        rear = (rear + 1) % MaxSize;
-        data[rear] = e;
-    &#125;
-
-    public E pop() &#123; // 出队
-        if (empty()) &#123;
-            throw new IllegalArgumentException( &quot;队空&quot; );
-        &#125;
-        front = (front + 1) % MaxSize;
-        return data[front];
-    &#125;
-
-    public E push() &#123; // 返回队头元素
-        if (empty()) &#123;
-            throw new IllegalArgumentException( &quot;队空&quot; );
-        &#125;
-        return data[(front + 1) % MaxSize];
-    &#125;
-&#125;
     ```
 </code></pre>
 
