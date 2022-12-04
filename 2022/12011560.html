@@ -1005,6 +1005,204 @@
 </ol>
 </li>
 </ol>
+<h2 id="第三章：栈和队列-Stack-and-Queue"><a href="#第三章：栈和队列-Stack-and-Queue" class="headerlink" title="第三章：栈和队列(Stack and Queue)"></a>第三章：栈和队列(Stack and Queue)</h2><h3 id="3-1、栈-Stack"><a href="#3-1、栈-Stack" class="headerlink" title="3.1、栈(Stack)"></a>3.1、栈(Stack)</h3><ol>
+<li>栈的定义：<ul>
+<li>栈是特殊的线性表：只允许在一端进行插入或删除操作，其逻辑结构与普通的线性表相同;</li>
+<li>栈顶(Top):允许进行插入和删除的一端(最上面的为栈顶元素)；</li>
+<li>栈底(Bottom): 固定的，不允许进行插入和删除的一端(最下面的为栈底元素)；</li>
+<li>空栈：不含任何元素的空表；</li>
+<li>特点：先进后出、后进先出；</li>
+<li>缺点：栈的大小不可变；<h3 id="3-2、栈的顺序存储结构及操作"><a href="#3-2、栈的顺序存储结构及操作" class="headerlink" title="3.2、栈的顺序存储结构及操作"></a>3.2、栈的顺序存储结构及操作</h3></li>
+</ul>
+</li>
+<li>顺序栈的四要素：<ol>
+<li>栈空的条件为top == -1;</li>
+<li>栈满(栈上溢出)的条件为top == capacity-1,我们采用动态扩展容量方式，即栈满时，数组容量扩大两倍;</li>
+<li>元素e进栈操作是先将栈顶指针top增1，然后再将元素e放在栈顶指针处;</li>
+<li>出栈操作是先将栈顶指针top处的元素取出，然后将栈顶指针减1  </li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>这里我们区分一下正栈和倒栈的区别:<br>栈的存储空间S(1:m),可以理解Wie一个可以容纳m个数据的空间，本身看不出方法的，因此要根据数据进出栈时的指针变化来区分正栈和倒栈。<br>正栈：栈底为1，栈顶可以为1~m中任意一个数，但是top=m时，栈满，top不可能指向大于m的任何数字。此时，栈中的元素为top-bottom+1;，对于正栈，栈空的时候top可以为0、-1、···中任意一个数，可以理解每出一个栈，栈顶指针top-1,直到top=0，栈为空。</p>
+<ul>
+<li>特点：<font style="background:#ffff22">元素入栈：先将top值自增1，然后元素入栈，放在top指针处。data[++top]=e。自己的理解：想要在栈中添加一个数据，首先得知道栈中的容量够不够，如果直接塞进去，容量不够就会被挤出来，所以栈顶元素得先自增1，如果容量不过，则动态去扩展容量，这样就防止溢出。<font></li>
+<li>出栈操作：<font color=red>先将top指针的元素取出，然后栈顶指针再减1。e=data[top–]。这个就比较直接了当了，比如当我们在一摞书上，首先是先咋走一本书，总体书的数量才会再减1，不可能你都没有拿书，就开始减1吧。</font></li>
+</ul>
+<p>倒栈： 初始状态下栈顶为m，栈底为m，当top=1时表示栈满，top不可能指向小于1的任何数。此时，栈中的元素数量等于m-top。可以理解为每出栈一个元素，top++，直到top=m+1,栈空。</p>
+<ul>
+<li>特点：元素入栈：先将元素入栈，然后top值自减1，放在top指针处。data[top–]=e。</li>
+<li>元素出栈：先将栈顶自增1，然后元素出栈。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>总结：</p>
+<ul>
+<li>正栈 入栈：先增后入</li>
+<li>正栈 出栈：先出后减</li>
+<li>倒栈 入栈：先入后减</li>
+<li>倒栈 出栈：先增后出</li>
+</ul>
+</blockquote>
+<pre class=" language-Java"><code class="language-Java">class SqStackClass<E> &#123; // 顺序栈泛型类
+    final int initcapacity = 10; // 初始栈的容量
+    private int capacity; // 存放顺序栈的容量
+    private E[] data; // 存放顺序栈的元素
+    private int top; // 存放栈顶的指针
+
+    public SqStackClass() &#123;
+        data = (E[]) new Object[initcapacity];
+        capacity = initcapacity;
+        top = -1;
+    &#125;
+
+    public void UpdateCapacity(int newCapacity) &#123; // 改变顺序栈的容量
+        E[] newdata = (E[]) new Object[newCapacity];
+        for (int i = 0; i <= top; i++) &#123;
+            newdata[i] = data[i];
+        &#125;
+        capacity = newCapacity;
+        data = newdata;
+    &#125;
+
+    public boolean IsEmpty() &#123; // 判断栈是否为空
+        return top == -1;
+    &#125;
+
+    public void push(E e) &#123; // 元素进栈
+        if (top == capacity) &#123;
+            UpdateCapacity( 2 * (top + 1) );
+        &#125;
+        top++;
+        data[top] = e;
+    &#125;
+
+    public E pop()&#123; // 出栈操作
+        if(IsEmpty())&#123;
+            throw new IllegalArgumentException("栈空");
+        &#125;
+        E e=data[top];
+        top--;
+        return e;
+    &#125;
+
+    public E peek()&#123;
+        if(IsEmpty())&#123;
+            throw new IllegalArgumentException("栈空");
+        &#125;
+        return data[top];
+    &#125;
+    // 从上面的算法来看，所有的操作时间复杂度都是O(1)
+&#125;
+</code></pre>
+<h3 id="3-3、栈的链式存储结构及操作"><a href="#3-3、栈的链式存储结构及操作" class="headerlink" title="3.3、栈的链式存储结构及操作"></a>3.3、栈的链式存储结构及操作</h3><ol>
+<li><p>定义：采用链式存储的栈称为链栈</p>
+</li>
+<li><p>优点：便于多个栈共享存储空间和提高效率，且不存在栈满上溢的情况。</p>
+</li>
+<li><p>特点：</p>
+<ol>
+<li>进栈和出栈都只能在栈顶一端进行(链头作为栈顶)</li>
+</ol>
+</li>
+<li><p>所以，链栈实际就是一个只能采用头插法插入或删除数据的链表。<br>```Java<br>// 在此说明一下，结点类在前面的单链表中定义过了。<br>class LinkStackClass<E> {<br> LinkNode<E> head;</p>
+<p> public LinkStackClass() {</p>
+<pre><code> head = new LinkNode&lt;&gt;();
+ head.next = null;
+</code></pre>
+<p> }</p>
+<p> public boolean empty() { // 判断链栈是否为空</p>
+<pre><code> return head.next == null;
+</code></pre>
+<p> }</p>
+<p> public void push(E e) { // 入栈</p>
+<pre><code> LinkNode s = new LinkNode();
+ s.next = head.next;
+ head.next = s;
+</code></pre>
+<p> }</p>
+<p> public E pop() { // 出栈</p>
+<pre><code> if (empty()) &#123;
+     throw new IllegalArgumentException( &quot;栈空&quot; );
+ &#125;
+ E e = (E) head.next.data;
+ head.next = head.next.next;
+ return e;
+</code></pre>
+<p> }</p>
+<p> public E peek() { // 取栈顶元素</p>
+<pre><code> if (empty()) &#123;
+     throw new IllegalArgumentException( &quot;栈空&quot; );
+ &#125;
+ return (E) head.next.data;
+</code></pre>
+<p> }</p>
+</li>
+</ol>
+<p>}</p>
+<pre><code>5. 栈的基本操作：
+   1. 初始化
+   2. 进栈
+   3. 出栈
+   4. 栈满、栈空
+   5. 判断栈顶的元素
+### 3.4、队列(Queue)
+1. 定义：队列简称对，是一种操作受限的线性表，只允许在表的一端进行插入，而在表的另一端进行删除。
+2. 特点：
+   1. 操作特性：先进先出
+   2. 队头：允许删除的一端
+   3. 队尾：允许插入的一端
+   4. 空队列：不含任何元素的空表
+### 3.5、队列的顺序存储结构及操作
+1. 顺序队分为非循环队和循环队两种方式。首先我们先说非循环队及特征
+2. 默认初始值front和rear均为 -1
+3. 队头指针为front(实际上是对头元素的前一个位置)，队尾指针为rear(正好是队尾元素的位置).为什么让front指向队列中前一个元素位置？因为在front增1后，该位置的元素已经出队了
+4. 队满：rear == MaxSize-1
+5. 元素每次进队：rear = rear+1(队尾先+1，再入队)
+6. 元素每次出队：front = front+1(队头先+1，再出队)
+7. 队空的条件：front == rear
+8. &lt;font style=&quot;background:#ffff22&quot;&gt;特点：非循环队列会出现假溢出。相关操作的时间复杂度都是O(1)&lt;/font&gt;
+```Java
+class SqQueueClass&lt;E&gt; &#123; // 非循环队列的泛型类
+    final int MaxSize = 10; // 假设容量为10
+    private E[] data; // 存放队列中的元素
+    private int front, rear; // 队头、队尾的指针
+
+    public SqQueueClass() &#123;
+        data = (E[]) new Object[MaxSize];
+        front = rear = -1; // 队头、队尾的指针默认为-1，队为空
+    &#125;
+
+
+    public boolean empty() &#123; // 判断是否为空
+        return front == rear;
+    &#125;
+
+    public void push(E e) &#123; // 入队操作
+        if (rear == MaxSize - 1) &#123;
+            throw new IllegalArgumentException( &quot;队满&quot; );
+        &#125;
+        rear++;
+        data[rear] = e;
+    &#125;
+
+    public E pop() &#123; // 出队
+        if (front == rear) &#123;
+            throw new IllegalArgumentException( &quot;队空&quot; );
+        &#125;
+        front++;
+        E e = data[front];
+        return e;
+    &#125;
+
+    public E peek() &#123; // 取头元素
+        if (front == rear) &#123;
+            throw new IllegalArgumentException( &quot;队空&quot; );
+        &#125;
+        return data[front + 1];
+    &#125;
+&#125;
+</code></pre>
 
                 
             </div>
