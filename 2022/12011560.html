@@ -1177,7 +1177,7 @@
 </li>
 <li><p>队空的条件：front == rear</p>
 </li>
-<li><p><font style="background:#ffff22">特点：非循环队列会出现假溢出。相关操作的时间复杂度都是O(1)</font><br>```Java<br> class SqQueueClass<E> { // 非循环队列的泛型类</p>
+<li><p><font style="background:#ffff22">特点：非循环队列会出现假溢出。相关操作的时间复杂度都是O(1)</font><br> ```Java<br>class SqQueueClass<E> { // 非循环队列的泛型类</p>
 <pre><code> final int MaxSize = 10; // 假设容量为10
  private E[] data; // 存放队列中的元素
  private int front, rear; // 队头、队尾的指针
@@ -1217,60 +1217,76 @@
         return data[front + 1];
     &#125;
 &#125;
+```
 </code></pre>
-<pre><code>### 3.5.1、队列的顺序存储结构及操作
-1. 这里来说循环队列的特点和操作
-2. 定义：将循环队列想象为一个环状的空间，即把存储队列元素的表从逻辑上视为一个环，称为循环队列。
-3. 主要作用：为了克服非循环队列的假溢出
-4. &lt;font color=&quot;red&quot;&gt;这里以下，代码及以上，重点！！！！&lt;/font&gt;:
-   1. 因为循环队列首尾相连，但队尾指针rear=MaxSize-1时，再前进一个位置就是0位置。所以我们可以利用求余(%)实现进队和出队的所在位置：
-      1. 队首指针循环进1：front=(front+1)%MaxSize
-      2. 队尾指针循环进1：rear=(rear+1)%MaxSize
-    2. 队空的条件：rear==front
-    3. 队满条件为(rear+1)%MaxSize == front
-    4. 进队：rear=(rear+1)%MaxSize，再将元素e放在该位置上
-    5. 出队：front=(front+1)%MaxSize，取出该元素的位置
-    6. 队中的元素个数：(rear-front+MaxSize)%MaxSize
-    7. 循环队列和非循环队列的头尾指针值不一样，循环队列为front=rear=0
-```Java
-    class CSqQueueClass&lt;E&gt; &#123;
-        final int MaxSize = 10; // 假设容量为10
-        private E[] data; // 存放队列中的元素
-        private int front, rear; // 队头、队尾的指针
+<h3 id="3-5-1、队列的顺序存储结构及操作"><a href="#3-5-1、队列的顺序存储结构及操作" class="headerlink" title="3.5.1、队列的顺序存储结构及操作"></a>3.5.1、队列的顺序存储结构及操作</h3><ol>
+<li><p>这里来说循环队列的特点和操作</p>
+</li>
+<li><p>定义：将循环队列想象为一个环状的空间，即把存储队列元素的表从逻辑上视为一个环，称为循环队列。</p>
+</li>
+<li><p>主要作用：为了克服非循环队列的假溢出</p>
+</li>
+<li><p><font color="red">这里以下，代码及以上，重点！！！！</font>:</p>
+<ol>
+<li><p>因为循环队列首尾相连，但队尾指针rear=MaxSize-1时，再前进一个位置就是0位置。所以我们可以利用求余(%)实现进队和出队的所在位置：</p>
+<ol>
+<li>队首指针循环进1：front=(front+1)%MaxSize</li>
+<li>队尾指针循环进1：rear=(rear+1)%MaxSize</li>
+</ol>
+</li>
+<li><p>队空的条件：rear==front</p>
+</li>
+<li><p>队满条件为(rear+1)%MaxSize == front</p>
+</li>
+<li><p>进队：rear=(rear+1)%MaxSize，再将元素e放在该位置上</p>
+</li>
+<li><p>出队：front=(front+1)%MaxSize，取出该元素的位置</p>
+</li>
+<li><p>队中的元素个数：(rear-front+MaxSize)%MaxSize</p>
+</li>
+<li><p>循环队列和非循环队列的头尾指针值不一样，循环队列为front=rear=0</p>
+<pre class=" language-Java"><code class="language-Java">class CSqQueueClass<E> &#123;
+ final int MaxSize = 10; // 假设容量为10
+ private E[] data; // 存放队列中的元素
+ private int front, rear; // 队头、队尾的指针
 
-        public CSqQueueClass() &#123;
-            data = (E[]) new Object[MaxSize];
-            front = rear = 0;
-        &#125;
+ public CSqQueueClass() &#123;
+     data = (E[]) new Object[MaxSize];
+     front = rear = 0;
+ &#125;
 
-        public boolean empty() &#123; // 判断是否为空
-            return rear == front;
-        &#125;
+ public boolean empty() &#123; // 判断是否为空
+     return rear == front;
+ &#125;
 
-        public void push(E e) &#123; // 入队
-            if ((rear + 1) % MaxSize == front) &#123;
-                throw new IllegalArgumentException( &quot;队满&quot; );
-            &#125;
-            rear = (rear + 1) % MaxSize;
-            data[rear] = e;
-        &#125;
+ public void push(E e) &#123; // 入队
+     if ((rear + 1) % MaxSize == front) &#123;
+         throw new IllegalArgumentException( "队满" );
+     &#125;
+     rear = (rear + 1) % MaxSize;
+     data[rear] = e;
+ &#125;
 
-        public E pop() &#123; // 出队
-            if (empty()) &#123;
-                throw new IllegalArgumentException( &quot;队空&quot; );
-            &#125;
-            front = (front + 1) % MaxSize;
-            return data[front];
-        &#125;
+ public E pop() &#123; // 出队
+     if (empty()) &#123;
+         throw new IllegalArgumentException( "队空" );
+     &#125;
+     front = (front + 1) % MaxSize;
+     return data[front];
+ &#125;
 
-        public E push() &#123; // 返回队头元素
-            if (empty()) &#123;
-                throw new IllegalArgumentException( &quot;队空&quot; );
-            &#125;
-            return data[(front + 1) % MaxSize];
-        &#125;
-    &#125;
+ public E push() &#123; // 返回队头元素
+     if (empty()) &#123;
+         throw new IllegalArgumentException( "队空" );
+     &#125;
+     return data[(front + 1) % MaxSize];
+ &#125;
+&#125;
 </code></pre>
+</li>
+</ol>
+</li>
+</ol>
 
                 
             </div>
