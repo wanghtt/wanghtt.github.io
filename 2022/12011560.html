@@ -1105,76 +1105,91 @@
 <li>进栈和出栈都只能在栈顶一端进行(链头作为栈顶)</li>
 </ol>
 </li>
-<li><p>所以，链栈实际就是一个只能采用头插法插入或删除数据的链表。<br>```Java<br>// 在此说明一下，结点类在前面的单链表中定义过了。<br>class LinkStackClass<E> {<br> LinkNode<E> head;</p>
-<p> public LinkStackClass() {</p>
-<pre><code> head = new LinkNode&lt;&gt;();
- head.next = null;
-</code></pre>
-<p> }</p>
-<p> public boolean empty() { // 判断链栈是否为空</p>
-<pre><code> return head.next == null;
-</code></pre>
-<p> }</p>
-<p> public void push(E e) { // 入栈</p>
-<pre><code> LinkNode s = new LinkNode();
- s.next = head.next;
- head.next = s;
-</code></pre>
-<p> }</p>
-<p> public E pop() { // 出栈</p>
-<pre><code> if (empty()) &#123;
-     throw new IllegalArgumentException( &quot;栈空&quot; );
+<li><p>所以，链栈实际就是一个只能采用头插法插入或删除数据的链表。</p>
+<pre class=" language-Java"><code class="language-Java"> // 在此说明一下，结点类在前面的单链表中定义过了。
+ class LinkStackClass<E> &#123;
+     LinkNode<E> head;
+
+     public LinkStackClass() &#123;
+         head = new LinkNode<>();
+         head.next = null;
+     &#125;
+
+     public boolean empty() &#123; // 判断链栈是否为空
+         return head.next == null;
+     &#125;
+
+     public void push(E e) &#123; // 入栈
+         LinkNode s = new LinkNode();
+         s.next = head.next;
+         head.next = s;
+     &#125;
+
+     public E pop() &#123; // 出栈
+         if (empty()) &#123;
+             throw new IllegalArgumentException( "栈空" );
+         &#125;
+         E e = (E) head.next.data;
+         head.next = head.next.next;
+         return e;
+     &#125;
+
+     public E peek() &#123; // 取栈顶元素
+         if (empty()) &#123;
+             throw new IllegalArgumentException( "栈空" );
+         &#125;
+         return (E) head.next.data;
+     &#125;
+
  &#125;
- E e = (E) head.next.data;
- head.next = head.next.next;
- return e;
 </code></pre>
-<p> }</p>
-<p> public E peek() { // 取栈顶元素</p>
-<pre><code> if (empty()) &#123;
-     throw new IllegalArgumentException( &quot;栈空&quot; );
+</li>
+<li><p>栈的基本操作：</p>
+<ol>
+<li>初始化</li>
+<li>进栈</li>
+<li>出栈</li>
+<li>栈满、栈空</li>
+<li>判断栈顶的元素<h3 id="3-4、队列-Queue"><a href="#3-4、队列-Queue" class="headerlink" title="3.4、队列(Queue)"></a>3.4、队列(Queue)</h3></li>
+</ol>
+</li>
+<li><p>定义：队列简称对，是一种操作受限的线性表，只允许在表的一端进行插入，而在表的另一端进行删除。</p>
+</li>
+<li><p>特点：</p>
+<ol>
+<li>操作特性：先进先出</li>
+<li>队头：允许删除的一端</li>
+<li>队尾：允许插入的一端</li>
+<li>空队列：不含任何元素的空表<h3 id="3-5、队列的顺序存储结构及操作"><a href="#3-5、队列的顺序存储结构及操作" class="headerlink" title="3.5、队列的顺序存储结构及操作"></a>3.5、队列的顺序存储结构及操作</h3></li>
+</ol>
+</li>
+<li><p>顺序队分为非循环队和循环队两种方式。首先我们先说非循环队及特征</p>
+</li>
+<li><p>默认初始值front和rear均为 -1</p>
+</li>
+<li><p>队头指针为front(实际上是对头元素的前一个位置)，队尾指针为rear(正好是队尾元素的位置).为什么让front指向队列中前一个元素位置？因为在front增1后，该位置的元素已经出队了</p>
+</li>
+<li><p>队满：rear == MaxSize-1</p>
+</li>
+<li><p>元素每次进队：rear = rear+1(队尾先+1，再入队)</p>
+</li>
+<li><p>元素每次出队：front = front+1(队头先+1，再出队)</p>
+</li>
+<li><p>队空的条件：front == rear</p>
+</li>
+<li><p><font style="background:#ffff22">特点：非循环队列会出现假溢出。相关操作的时间复杂度都是O(1)</font><br>```Java<br> class SqQueueClass<E> { // 非循环队列的泛型类</p>
+<pre><code> final int MaxSize = 10; // 假设容量为10
+ private E[] data; // 存放队列中的元素
+ private int front, rear; // 队头、队尾的指针
+
+ public SqQueueClass() &#123;
+     data = (E[]) new Object[MaxSize];
+     front = rear = -1; // 队头、队尾的指针默认为-1，队为空
  &#125;
- return (E) head.next.data;
 </code></pre>
-<p> }</p>
 </li>
 </ol>
-<p>}</p>
-<pre><code>5. 栈的基本操作：
-   1. 初始化
-   2. 进栈
-   3. 出栈
-   4. 栈满、栈空
-   5. 判断栈顶的元素
-### 3.4、队列(Queue)
-1. 定义：队列简称对，是一种操作受限的线性表，只允许在表的一端进行插入，而在表的另一端进行删除。
-2. 特点：
-   1. 操作特性：先进先出
-   2. 队头：允许删除的一端
-   3. 队尾：允许插入的一端
-   4. 空队列：不含任何元素的空表
-### 3.5、队列的顺序存储结构及操作
-1. 顺序队分为非循环队和循环队两种方式。首先我们先说非循环队及特征
-2. 默认初始值front和rear均为 -1
-3. 队头指针为front(实际上是对头元素的前一个位置)，队尾指针为rear(正好是队尾元素的位置).为什么让front指向队列中前一个元素位置？因为在front增1后，该位置的元素已经出队了
-4. 队满：rear == MaxSize-1
-5. 元素每次进队：rear = rear+1(队尾先+1，再入队)
-6. 元素每次出队：front = front+1(队头先+1，再出队)
-7. 队空的条件：front == rear
-8. &lt;font style=&quot;background:#ffff22&quot;&gt;特点：非循环队列会出现假溢出。相关操作的时间复杂度都是O(1)&lt;/font&gt;
-```Java
-class SqQueueClass&lt;E&gt; &#123; // 非循环队列的泛型类
-    final int MaxSize = 10; // 假设容量为10
-    private E[] data; // 存放队列中的元素
-    private int front, rear; // 队头、队尾的指针
-
-    public SqQueueClass() &#123;
-        data = (E[]) new Object[MaxSize];
-        front = rear = -1; // 队头、队尾的指针默认为-1，队为空
-    &#125;
-
-
-    public boolean empty() &#123; // 判断是否为空
+<pre><code>    public boolean empty() &#123; // 判断是否为空
         return front == rear;
     &#125;
 
@@ -1202,6 +1217,59 @@ class SqQueueClass&lt;E&gt; &#123; // 非循环队列的泛型类
         return data[front + 1];
     &#125;
 &#125;
+</code></pre>
+<pre><code>### 3.5.1、队列的顺序存储结构及操作
+1. 这里来说循环队列的特点和操作
+2. 定义：将循环队列想象为一个环状的空间，即把存储队列元素的表从逻辑上视为一个环，称为循环队列。
+3. 主要作用：为了克服非循环队列的假溢出
+4. &lt;font color=&quot;red&quot;&gt;这里以下，代码及以上，重点！！！！&lt;/font&gt;:
+   1. 因为循环队列首尾相连，但队尾指针rear=MaxSize-1时，再前进一个位置就是0位置。所以我们可以利用求余(%)实现进队和出队的所在位置：
+      1. 队首指针循环进1：front=(front+1)%MaxSize
+      2. 队尾指针循环进1：rear=(rear+1)%MaxSize
+    2. 队空的条件：rear==front
+    3. 队满条件为(rear+1)%MaxSize == front
+    4. 进队：rear=(rear+1)%MaxSize，再将元素e放在该位置上
+    5. 出队：front=(front+1)%MaxSize，取出该元素的位置
+    6. 队中的元素个数：(rear-front+MaxSize)%MaxSize
+    7. 循环队列和非循环队列的头尾指针值不一样，循环队列为front=rear=0
+```Java
+    class CSqQueueClass&lt;E&gt; &#123;
+        final int MaxSize = 10; // 假设容量为10
+        private E[] data; // 存放队列中的元素
+        private int front, rear; // 队头、队尾的指针
+
+        public CSqQueueClass() &#123;
+            data = (E[]) new Object[MaxSize];
+            front = rear = 0;
+        &#125;
+
+        public boolean empty() &#123; // 判断是否为空
+            return rear == front;
+        &#125;
+
+        public void push(E e) &#123; // 入队
+            if ((rear + 1) % MaxSize == front) &#123;
+                throw new IllegalArgumentException( &quot;队满&quot; );
+            &#125;
+            rear = (rear + 1) % MaxSize;
+            data[rear] = e;
+        &#125;
+
+        public E pop() &#123; // 出队
+            if (empty()) &#123;
+                throw new IllegalArgumentException( &quot;队空&quot; );
+            &#125;
+            front = (front + 1) % MaxSize;
+            return data[front];
+        &#125;
+
+        public E push() &#123; // 返回队头元素
+            if (empty()) &#123;
+                throw new IllegalArgumentException( &quot;队空&quot; );
+            &#125;
+            return data[(front + 1) % MaxSize];
+        &#125;
+    &#125;
 </code></pre>
 
                 
