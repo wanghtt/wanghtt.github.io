@@ -1150,7 +1150,7 @@
 <li>进栈</li>
 <li>出栈</li>
 <li>栈满、栈空</li>
-<li>判断栈顶的元素  </li>
+<li>判断栈顶的元素</li>
 </ol>
 </li>
 </ol>
@@ -1160,135 +1160,119 @@
 <li>操作特性：先进先出</li>
 <li>队头：允许删除的一端</li>
 <li>队尾：允许插入的一端</li>
-<li>空队列：不含任何元素的空表  </li>
+<li>空队列：不含任何元素的空表</li>
 </ol>
 </li>
 </ol>
 <h3 id="3-5、队列的顺序存储结构及操作"><a href="#3-5、队列的顺序存储结构及操作" class="headerlink" title="3.5、队列的顺序存储结构及操作"></a>3.5、队列的顺序存储结构及操作</h3><ol>
-<li><p>顺序队分为非循环队和循环队两种方式。首先我们先说非循环队及特征</p>
-</li>
-<li><p>默认初始值front和rear均为 -1</p>
-</li>
-<li><p>队头指针为front(实际上是对头元素的前一个位置)，队尾指针为rear(正好是队尾元素的位置).为什么让front指向队列中前一个元素位置？因为在front增1后，该位置的元素已经出队了</p>
-</li>
-<li><p>队满：rear == MaxSize-1</p>
-</li>
-<li><p>元素每次进队：rear = rear+1(队尾先+1，再入队)</p>
-</li>
-<li><p>元素每次出队：front = front+1(队头先+1，再出队)</p>
-</li>
-<li><p>队空的条件：front == rear</p>
-</li>
-<li><p><font style="background:#ffff22">特点：非循环队列会出现假溢出。相关操作的时间复杂度都是O(1)</font><br> ```Java<br>class SqQueueClass<E> { // 非循环队列的泛型类</p>
-<pre><code> final int MaxSize = 10; // 假设容量为10
- private E[] data; // 存放队列中的元素
- private int front, rear; // 队头、队尾的指针
-
- public SqQueueClass() &#123;
-     data = (E[]) new Object[MaxSize];
-     front = rear = -1; // 队头、队尾的指针默认为-1，队为空
- &#125;
-</code></pre>
-</li>
+<li>顺序队分为非循环队和循环队两种方式。首先我们先说非循环队及特征</li>
+<li>默认初始值front和rear均为 -1</li>
+<li>队头指针为front(实际上是对头元素的前一个位置)，队尾指针为rear(正好是队尾元素的位置).为什么让front指向队列中前一个元素位置？因为在front增1后，该位置的元素已经出队了</li>
+<li>队满：rear == MaxSize-1</li>
+<li>元素每次进队：rear = rear+1(队尾先+1，再入队)</li>
+<li>元素每次出队：front = front+1(队头先+1，再出队)</li>
+<li>队空的条件：front == rear</li>
+<li><font style="background:#ffff22">特点：非循环队列会出现假溢出。相关操作的时间复杂度都是O(1)</font></li>
 </ol>
-<pre><code>    public boolean empty() &#123; // 判断是否为空
-        return front == rear;
-    &#125;
+<pre class=" language-Java"><code class="language-Java">    class SqQueueClass<E> &#123; // 非循环队列的泛型类
+        final int MaxSize = 10; // 假设容量为10
+        private E[] data; // 存放队列中的元素
+        private int front, rear; // 队头、队尾的指针
 
-    public void push(E e) &#123; // 入队操作
-        if (rear == MaxSize - 1) &#123;
-            throw new IllegalArgumentException( &quot;队满&quot; );
+        public SqQueueClass() &#123;
+            data = (E[]) new Object[MaxSize];
+            front = rear = -1; // 队头、队尾的指针默认为-1，队为空
         &#125;
-        rear++;
-        data[rear] = e;
-    &#125;
 
-    public E pop() &#123; // 出队
-        if (front == rear) &#123;
-            throw new IllegalArgumentException( &quot;队空&quot; );
-        &#125;
-        front++;
-        E e = data[front];
-        return e;
-    &#125;
 
-    public E peek() &#123; // 取头元素
-        if (front == rear) &#123;
-            throw new IllegalArgumentException( &quot;队空&quot; );
+        public boolean empty() &#123; // 判断是否为空
+            return front == rear;
         &#125;
-        return data[front + 1];
+
+        public void push(E e) &#123; // 入队操作
+            if (rear == MaxSize - 1) &#123;
+                throw new IllegalArgumentException( "队满" );
+            &#125;
+            rear++;
+            data[rear] = e;
+        &#125;
+
+        public E pop() &#123; // 出队
+            if (front == rear) &#123;
+                throw new IllegalArgumentException( "队空" );
+            &#125;
+            front++;
+            E e = data[front];
+            return e;
+        &#125;
+
+        public E peek() &#123; // 取头元素
+            if (front == rear) &#123;
+                throw new IllegalArgumentException( "队空" );
+            &#125;
+            return data[front + 1];
+        &#125;
     &#125;
-&#125;
-```
 </code></pre>
 <h3 id="3-5-1、队列的顺序存储结构及操作"><a href="#3-5-1、队列的顺序存储结构及操作" class="headerlink" title="3.5.1、队列的顺序存储结构及操作"></a>3.5.1、队列的顺序存储结构及操作</h3><ol>
-<li><p>这里来说循环队列的特点和操作</p>
-</li>
-<li><p>定义：将循环队列想象为一个环状的空间，即把存储队列元素的表从逻辑上视为一个环，称为循环队列。</p>
-</li>
-<li><p>主要作用：为了克服非循环队列的假溢出</p>
-</li>
-<li><p><font color="red">这里以下，代码及以上，重点！！！！</font>:</p>
-<ol>
-<li><p>因为循环队列首尾相连，但队尾指针rear=MaxSize-1时，再前进一个位置就是0位置。所以我们可以利用求余(%)实现进队和出队的所在位置：</p>
-<ol>
+<li>这里来说循环队列的特点和操作</li>
+<li>定义：将循环队列想象为一个环状的空间，即把存储队列元素的表从逻辑上视为一个环，称为循环队列。</li>
+<li>主要作用：为了克服非循环队列的假溢出</li>
+<li><font color="red">这里以下，代码及以上，重点！！！！</font>:<ol>
+<li>因为循环队列首尾相连，但队尾指针rear=MaxSize-1时，再前进一个位置就是0位置。所以我们可以利用求余(%)实现进队和出队的所在位置：<ol>
 <li>队首指针循环进1：front=(front+1)%MaxSize</li>
 <li>队尾指针循环进1：rear=(rear+1)%MaxSize</li>
 </ol>
 </li>
-<li><p>队空的条件：rear==front</p>
+<li>队空的条件：rear==front</li>
+<li>队满条件为(rear+1)%MaxSize == front</li>
+<li>进队：rear=(rear+1)%MaxSize，再将元素e放在该位置上</li>
+<li>出队：front=(front+1)%MaxSize，取出该元素的位置</li>
+<li>队中的元素个数：(rear-front+MaxSize)%MaxSize</li>
+<li>循环队列和非循环队列的头尾指针值不一样，循环队列为front=rear=0</li>
+</ol>
 </li>
-<li><p>队满条件为(rear+1)%MaxSize == front</p>
-</li>
-<li><p>进队：rear=(rear+1)%MaxSize，再将元素e放在该位置上</p>
-</li>
-<li><p>出队：front=(front+1)%MaxSize，取出该元素的位置</p>
-</li>
-<li><p>队中的元素个数：(rear-front+MaxSize)%MaxSize</p>
-</li>
-<li><p>循环队列和非循环队列的头尾指针值不一样，循环队列为front=rear=0</p>
-<pre class=" language-Java"><code class="language-Java">class CSqQueueClass<E> &#123;
- final int MaxSize = 10; // 假设容量为10
- private E[] data; // 存放队列中的元素
- private int front, rear; // 队头、队尾的指针
+</ol>
+<pre><code>```Java
+class CSqQueueClass&lt;E&gt; &#123;
+    final int MaxSize = 10; // 假设容量为10
+    private E[] data; // 存放队列中的元素
+    private int front, rear; // 队头、队尾的指针
 
- public CSqQueueClass() &#123;
-     data = (E[]) new Object[MaxSize];
-     front = rear = 0;
- &#125;
+    public CSqQueueClass() &#123;
+        data = (E[]) new Object[MaxSize];
+        front = rear = 0;
+    &#125;
 
- public boolean empty() &#123; // 判断是否为空
-     return rear == front;
- &#125;
+    public boolean empty() &#123; // 判断是否为空
+        return rear == front;
+    &#125;
 
- public void push(E e) &#123; // 入队
-     if ((rear + 1) % MaxSize == front) &#123;
-         throw new IllegalArgumentException( "队满" );
-     &#125;
-     rear = (rear + 1) % MaxSize;
-     data[rear] = e;
- &#125;
+    public void push(E e) &#123; // 入队
+        if ((rear + 1) % MaxSize == front) &#123;
+            throw new IllegalArgumentException( &quot;队满&quot; );
+        &#125;
+        rear = (rear + 1) % MaxSize;
+        data[rear] = e;
+    &#125;
 
- public E pop() &#123; // 出队
-     if (empty()) &#123;
-         throw new IllegalArgumentException( "队空" );
-     &#125;
-     front = (front + 1) % MaxSize;
-     return data[front];
- &#125;
+    public E pop() &#123; // 出队
+        if (empty()) &#123;
+            throw new IllegalArgumentException( &quot;队空&quot; );
+        &#125;
+        front = (front + 1) % MaxSize;
+        return data[front];
+    &#125;
 
- public E push() &#123; // 返回队头元素
-     if (empty()) &#123;
-         throw new IllegalArgumentException( "队空" );
-     &#125;
-     return data[(front + 1) % MaxSize];
- &#125;
+    public E push() &#123; // 返回队头元素
+        if (empty()) &#123;
+            throw new IllegalArgumentException( &quot;队空&quot; );
+        &#125;
+        return data[(front + 1) % MaxSize];
+    &#125;
 &#125;
+```
 </code></pre>
-</li>
-</ol>
-</li>
-</ol>
 
                 
             </div>
